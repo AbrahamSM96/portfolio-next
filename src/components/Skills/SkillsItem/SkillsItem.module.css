@@ -1,0 +1,21 @@
+._content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, auto));
+  grid-gap: 10px;
+  gap: 10px;
+  margin: 0 2rem;
+  justify-content: center;
+}
+
+._skillCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
+._skillCard_figure {
+  height: 80px;
+  width: 120px;
+}

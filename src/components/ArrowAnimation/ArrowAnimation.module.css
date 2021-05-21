@@ -1,0 +1,96 @@
+._scrolldown {
+  margin: 0;
+  border-radius: 100px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 50px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  transform: rotate(-89deg);
+}
+
+._scrolldown span {
+  display: block;
+  opacity: 0;
+  border-radius: 100px;
+  transition: all 0.4s ease;
+  line-height: 0;
+  font-size: 0;
+  color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
+  background-size: 0 auto;
+  animation: pulse 1.5s 0s infinite normal ease forwards;
+  background-image: url('../../svg/arrow-down.svg');
+  background-repeat: no-repeat;
+}
+
+._scrolldown span:before,
+._scrolldown span:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('../../svg/arrow-down.svg') no-repeat center top;
+
+  background-size: 100% auto;
+}
+._scrolldown span:before {
+  animation: pulse 1.5s 0.25s infinite normal ease forwards;
+}
+._scrolldown span:after {
+  animation: pulse 1.5s 0.5s infinite normal ease forwards;
+}
+._scrolldown span:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+    background-position: center top;
+    background-size: 0 auto;
+  }
+  10% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    background-size: 75% auto;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    background-position: center bottom;
+    background-size: 0 auto;
+  }
+}
+
+._content_button {
+  align-self: center;
+  margin-top: 1rem;
+}
+
+._button {
+  font-size: 0.8rem;
+  color: #e62f66;
+  width: 120px;
+  height: 50px;
+  border: none;
+  outline: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 0;
+  border-radius: 10px;
+  position: relative;
+  padding: 0;
+}

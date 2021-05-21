@@ -1,0 +1,39 @@
+._title {
+  display: flex;
+  justify-content: center;
+}
+
+._container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50%, auto));
+  margin: 0 2rem;
+}
+._contentImage {
+  display: flex;
+  justify-content: center;
+}
+
+._contentImage_figure {
+  height: auto;
+  width: 200px;
+}
+
+._contentImage_img {
+  width: 100%;
+  height: auto;
+}
+
+._contentInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+@media (max-width: 730px) {
+  ._container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
