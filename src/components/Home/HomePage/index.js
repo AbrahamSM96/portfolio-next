@@ -3,7 +3,7 @@ import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 //import { IoIosArrowForward } from 'react-icons/io'
 import { useAppContext } from '../../../context/state'
 import ArrowAnimation from '../../ArrowAnimation'
-import styles from './HomePage.module.css'
+import styles from './Homepage.module.css'
 
 export default function HomePage() {
   const router = useRouter()
@@ -61,13 +61,21 @@ export default function HomePage() {
                 </SkeletonTheme>
               ) : (
                 <figure className={styles._figure}>
-                  <img src={url} alt={title} className={styles._img} />
+                  <img
+                    src={url}
+                    alt={title}
+                    className={styles._img}
+                    loading="lazy"
+                  />
                 </figure>
               )}
             </>
           )}
 
-          <ArrowAnimation route={() => router.push('/skills')} />
+          <ArrowAnimation
+            style={{ marginLeft: '3rem' }}
+            route={() => router.push('/skills')}
+          />
         </div>
       </div>
     </>

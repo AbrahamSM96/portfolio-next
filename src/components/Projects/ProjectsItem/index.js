@@ -7,6 +7,8 @@ export default function ProjectsItem() {
   const { data, load, error } = useAppContext()
   const { projects = {} } = data
   const { projectsArray = [] } = projects
+  const NOTFOUND_POSTER = 'https://dummyimage.com/120x120.png'
+
   return (
     <div className={styles._content}>
       {load ? (
@@ -22,7 +24,7 @@ export default function ProjectsItem() {
         </SkeletonTheme>
       ) : (
         <>
-          {projectsArray.map(({ id, project, img, url }) => (
+          {projectsArray.map(({ id, project, img = NOTFOUND_POSTER, url }) => (
             <div key={id} className={styles._projectCard}>
               <a href={url}>
                 <figure className={styles._projectCard_figure}>
@@ -30,6 +32,7 @@ export default function ProjectsItem() {
                     className={styles._projectCard_img}
                     src={img}
                     alt={project}
+                    loading="lazy"
                   />
                 </figure>
               </a>

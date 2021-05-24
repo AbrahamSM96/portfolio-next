@@ -9,6 +9,37 @@
   height: 50px;
 }
 
+._footer_heart {
+  color: #eb5e28;
+  animation: heathing 1s ease infinite;
+}
+
+@keyframes heathing {
+  0% {
+    transform: scale(0.75);
+  }
+
+  20% {
+    transform: scale(1);
+  }
+
+  40% {
+    transform: scale(0.75);
+  }
+
+  60% {
+    transform: scale(1);
+  }
+
+  80% {
+    transform: scale(0.75);
+  }
+
+  100% {
+    transform: scale(0.75);
+  }
+}
+
 @media (max-width: 730px) {
   ._footer {
     display: flex;

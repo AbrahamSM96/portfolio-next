@@ -3,6 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(13rem, auto));
   gap: 10px;
   margin: 0 2rem;
+  justify-content: center;
 }
 
 ._projectCard {

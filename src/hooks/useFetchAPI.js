@@ -23,5 +23,5 @@ export function useFetchAPI() {
   useEffect(() => {
     fetchAPI()
   }, [])
-  return { data, load, error }
+  return { data, load, error, setLoad }
 }

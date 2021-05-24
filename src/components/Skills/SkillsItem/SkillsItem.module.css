@@ -1,7 +1,6 @@
 ._content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(13rem, auto));
-  grid-gap: 10px;
   gap: 10px;
   margin: 0 2rem;
   justify-content: center;

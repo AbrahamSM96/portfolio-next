@@ -40,6 +40,7 @@ export default function AboutContainer() {
                   src={url}
                   alt={subtitle}
                   className={styles._contentImage_img}
+                  loading="lazy"
                 />
               </figure>
             )}

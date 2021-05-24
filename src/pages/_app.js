@@ -1,3 +1,5 @@
+import Head from 'next/head'
+
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { AnimatePresence } from 'framer-motion'
@@ -24,6 +26,16 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <Head>
+        <title>Abraham Serrano | Frontend Developer</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Abraham Serrano Montiel Frontend Developer Page"
+        />
+      </Head>
       <ContextWrapper>
         <AnimatePresence exitBeforeEnter>
           {router.pathname !== '/' && <Navbar />}

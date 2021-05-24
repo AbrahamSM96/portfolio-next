@@ -43,6 +43,18 @@
   height: auto;
   width: 100%;
 }
+._social_networks ._linkedin svg:hover {
+  fill: #0e76a8;
+  transition: 0.3s;
+}
+._social_networks ._github svg:hover {
+  fill: #171515;
+  transition: 0.3s;
+}
+._social_networks ._facebook svg:hover {
+  fill: #3b5998;
+  transition: 0.3s;
+}
 
 ._social_portfolio {
   display: inherit;

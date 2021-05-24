@@ -25,14 +25,32 @@ export default function Social() {
         </div>
         <div className={styles._social}>
           <div className={styles._social_networks}>
-            <figure>
-              <GrLinkedinOption size={SIZE} />
+            <figure className={styles._linkedin}>
+              <a
+                href={socialMedia[0] ? socialMedia[0].url : ''}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GrLinkedinOption size={SIZE} />
+              </a>
             </figure>
-            <figure>
-              <GrGithub size={SIZE} />
+            <figure className={styles._github}>
+              <a
+                href={socialMedia[1] ? socialMedia[1].url : ''}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GrGithub size={SIZE} />
+              </a>
             </figure>
-            <figure>
-              <GrFacebook size={SIZE} />
+            <figure className={styles._facebook}>
+              <a
+                href={socialMedia[2] ? socialMedia[2].url : ''}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <GrFacebook size={SIZE} />
+              </a>
             </figure>
           </div>
           <div className={styles._social_portfolio}>

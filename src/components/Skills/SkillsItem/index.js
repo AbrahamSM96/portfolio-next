@@ -4,9 +4,10 @@ import styles from './SkillsItem.module.css'
 import { useAppContext } from '../../../context/state'
 
 export default function SkillsItem() {
-  const { data, load, error } = useAppContext()
+  const { data, load, error, setLoad } = useAppContext()
   const { skills = {} } = data
   const { skillArray = [] } = skills
+  const NOTFOUND_POSTER = 'https://dummyimage.com/120x120.png'
 
   return (
     <>
@@ -22,17 +23,18 @@ export default function SkillsItem() {
           </SkeletonTheme>
         ) : (
           <>
-            {skillArray.map((skill) => (
-              <div key={skill.id} className={styles._skillCard}>
+            {skillArray.map(({ id, img = NOTFOUND_POSTER, skill, name }) => (
+              <div key={id} className={styles._skillCard}>
                 <figure className={styles._skillCard_figure}>
                   <img
-                    src={skill.img}
-                    alt={skill.skill}
+                    src={img}
+                    alt={skill}
                     style={{ height: 'auto', width: '100%' }}
+                    loading="lazy"
                   />
                 </figure>
 
-                <h2>{skill.name}</h2>
+                <h2>{name}</h2>
               </div>
             ))}
           </>
