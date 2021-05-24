@@ -18,6 +18,10 @@
   color: #e62f66;
 }
 
+._p {
+  width: 60%;
+}
+
 ._figure {
   width: 150px;
   height: 150px;
@@ -131,4 +135,7 @@
   /* ._content_button {
     align-self: flex-start;
   } */
+  ._p {
+    width: 40%;
+  }
 }

@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
     "date-fns": "^2.21.3",
     "framer-motion": "^4.1.17",
     "next": "10.2.0",
@@ -16,5 +17,8 @@
     "react-icons": "^4.2.0",
     "react-loading-skeleton": "^2.2.0",
     "vanilla-lazyload": "^17.3.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^5.5.0"
   }
 }

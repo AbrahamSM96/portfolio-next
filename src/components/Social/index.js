@@ -36,7 +36,7 @@ export default function Social() {
             </figure>
             <figure className={styles._github}>
               <a
-                href={socialMedia[1] ? socialMedia[1].url : ''}
+                href={socialMedia[1] ? socialMedia[2].url : ''}
                 target="_blank"
                 rel="noreferrer"
               >
@@ -45,7 +45,7 @@ export default function Social() {
             </figure>
             <figure className={styles._facebook}>
               <a
-                href={socialMedia[2] ? socialMedia[2].url : ''}
+                href={socialMedia[2] ? socialMedia[1].url : ''}
                 target="_blank"
                 rel="noreferrer"
               >

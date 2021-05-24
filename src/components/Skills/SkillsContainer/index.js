@@ -7,7 +7,7 @@ export default function SkillsContainer() {
   const router = useRouter()
 
   return (
-    <>
+    <div className={styles._container}>
       <div className={styles._title}>
         <h1>Skills</h1>
       </div>
@@ -15,6 +15,6 @@ export default function SkillsContainer() {
       <div className={styles._button}>
         <ArrowAnimation route={() => router.push('/projects')} />
       </div>
-    </>
+    </div>
   )
 }

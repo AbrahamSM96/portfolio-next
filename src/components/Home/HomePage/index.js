@@ -50,7 +50,7 @@ export default function HomePage() {
             <>
               <h1 className={styles._h1}>{title}</h1>
               <h2>{subtitle}</h2>
-              <p className="">{contentTitle}</p>
+              <p className={styles._p}>{contentTitle}</p>
               {load ? (
                 <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
                   <Skeleton
@@ -72,10 +72,7 @@ export default function HomePage() {
             </>
           )}
 
-          <ArrowAnimation
-            style={{ marginLeft: '3rem' }}
-            route={() => router.push('/skills')}
-          />
+          <ArrowAnimation route={() => router.push('/skills')} />
         </div>
       </div>
     </>

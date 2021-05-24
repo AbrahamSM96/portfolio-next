@@ -34,7 +34,7 @@ export default function SkillsItem() {
                   />
                 </figure>
 
-                <h2>{name}</h2>
+                <h2 className={styles._skillCard_title}>{name}</h2>
               </div>
             ))}
           </>

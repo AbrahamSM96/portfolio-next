@@ -18,3 +18,8 @@
   height: 80px;
   width: 120px;
 }
+
+._skillCard_title {
+  font-weight: 400;
+  margin: 2rem 1rem;
+}
