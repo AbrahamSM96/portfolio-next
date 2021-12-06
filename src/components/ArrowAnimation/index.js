@@ -1,5 +1,4 @@
-import React from 'react'
-import styles from './ArrowAnimation.module.css'
+import styles from "./ArrowAnimation.module.css";
 
 export default function ArrowAnimation({ route, style }) {
   return (
@@ -12,5 +11,5 @@ export default function ArrowAnimation({ route, style }) {
         </button>
       </div>
     </>
-  )
+  );
 }

@@ -1,34 +1,34 @@
-import React, { useEffect, useRef } from 'react'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import styles from './Navbar.module.css'
-import { useAppContext } from '../../context/state'
+import { useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import styles from "./Navbar.module.css";
+import { useAppContext } from "../../context/state";
 
 export default function Navbar() {
-  const router = useRouter()
-  const refHamburguer = useRef(null)
-  const refContainerLinks = useRef(null)
-  const refAnchor = useRef(null)
-  const { data, load, error } = useAppContext()
-  const { hero = {} } = data
-  const { url } = hero
+  const router = useRouter();
+  const refHamburguer = useRef(null);
+  const refContainerLinks = useRef(null);
+  const refAnchor = useRef(null);
+  const { data, load, error } = useAppContext();
+  const { hero = {} } = data;
+  const { url = "" } = hero;
 
   const toggleHamburguer = () => {
-    refHamburguer.current.classList.toggle(styles._active_hamburguer)
-    refContainerLinks.current.classList.toggle(styles._active_container)
-  }
+    refHamburguer.current.classList.toggle(styles._active_hamburguer);
+    refContainerLinks.current.classList.toggle(styles._active_container);
+  };
   const toggleCloseMenu = () => {
-    refContainerLinks.current.getElementsByTagName('a')
-    console.log(refContainerLinks.current.getElementsByTagName('a'))
-    refHamburguer.current.classList.remove(styles._active_hamburguer)
-    refContainerLinks.current.classList.remove(styles._active_container)
-  }
-  useEffect(() => {}, [])
-  const homePath = router.pathname === '/' ? styles._linksPath : ''
-  const skillPath = router.pathname === '/skills' ? styles._linksPath : ''
-  const projectPath = router.pathname === '/projects' ? styles._linksPath : ''
-  const aboutPath = router.pathname === '/about' ? styles._linksPath : ''
+    refContainerLinks.current.getElementsByTagName("a");
+    console.log(refContainerLinks.current.getElementsByTagName("a"));
+    refHamburguer.current.classList.remove(styles._active_hamburguer);
+    refContainerLinks.current.classList.remove(styles._active_container);
+  };
+  const homePath = router.pathname === "/" ? styles._linksPath : "";
+  const skillPath = router.pathname === "/skills" ? styles._linksPath : "";
+  const projectPath = router.pathname === "/projects" ? styles._linksPath : "";
+  const aboutPath = router.pathname === "/about" ? styles._linksPath : "";
 
   return (
     <>
@@ -40,9 +40,19 @@ export default function Navbar() {
                 <Skeleton height={30} width={30} />
               </SkeletonTheme>
             ) : (
-              <Link href="/">
-                <img src={url} alt="Logo" className={styles._logo_img} />
-              </Link>
+              <>
+                {url.length > 0 && (
+                  <Link href="/" passHref>
+                    <Image
+                      src={url}
+                      alt="Logo"
+                      className={styles._logo_img}
+                      height="30"
+                      width="30"
+                    />
+                  </Link>
+                )}
+              </>
             )}
           </figure>
         </div>
@@ -83,5 +93,5 @@ export default function Navbar() {
         </div>
       </nav>
     </>
-  )
+  );
 }

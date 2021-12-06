@@ -1,13 +1,13 @@
-import React from 'react'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import styles from './ProjectsItem.module.css'
-import { useAppContext } from '../../../context/state'
+import Image from "next/image";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import styles from "./ProjectsItem.module.css";
+import { useAppContext } from "../../../context/state";
 
 export default function ProjectsItem() {
-  const { data, load, error } = useAppContext()
-  const { projects = {} } = data
-  const { projectsArray = [] } = projects
-  const NOTFOUND_POSTER = 'https://dummyimage.com/120x120.png'
+  const { data, load, error } = useAppContext();
+  const { projects = {} } = data;
+  const { projectsArray = [] } = projects;
+  const NOTFOUND_POSTER = "https://dummyimage.com/120x120.png";
 
   return (
     <div className={styles._content}>
@@ -18,7 +18,7 @@ export default function ProjectsItem() {
             width={240}
             height={250}
             style={{
-              margin: '1rem .5rem'
+              margin: "1rem .5rem",
             }}
           />
         </SkeletonTheme>
@@ -26,14 +26,15 @@ export default function ProjectsItem() {
         <>
           {projectsArray.map(({ id, project, img = NOTFOUND_POSTER, url }) => (
             <div key={id} className={styles._projectCard}>
-              <a href={url}>
+              <a href={url} target="_blank" rel="noreferrer">
                 <figure className={styles._projectCard_figure}>
-                  <img
-                    className={styles._projectCard_img}
-                    src={img}
-                    alt={project}
-                    loading="lazy"
-                  />
+                  {img.length > 0 && (
+                    <img
+                      className={styles._projectCard_img}
+                      src={img}
+                      alt={project}
+                    />
+                  )}
                 </figure>
               </a>
               <h2 className={styles._projectCard_title}>{project}</h2>
@@ -42,5 +43,5 @@ export default function ProjectsItem() {
         </>
       )}
     </div>
-  )
+  );
 }

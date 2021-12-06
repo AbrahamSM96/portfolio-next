@@ -25,6 +25,7 @@
 ._figure {
   width: 150px;
   height: 150px;
+  z-index: 1;
 }
 
 ._img {

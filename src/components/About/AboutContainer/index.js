@@ -1,14 +1,15 @@
-import React from 'react'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import styles from './AboutContainer.module.css'
-import { useAppContext } from '../../../context/state'
-import Social from 'src/components/Social'
+import Image from "next/image";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import styles from "./AboutContainer.module.css";
+import { useAppContext } from "../../../context/state";
+import Social from "src/components/Social";
 
 export default function AboutContainer() {
-  const { data, error, load } = useAppContext()
-  const { about = {}, contact = {}, social = {} } = data
-  const { url } = contact
-  const { titleAbout, subtitle, contentAbout } = about
+  const { data, error, load } = useAppContext();
+  const { about = {}, contact = {}, social = {} } = data;
+  const { url = "" } = contact;
+  const { titleAbout, subtitle, contentAbout } = about;
+  console.log(url, "url");
   return (
     <>
       <div className={styles._title}>
@@ -18,9 +19,9 @@ export default function AboutContainer() {
         <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
           <div
             style={{
-              display: 'flex',
-              justifyContent: 'space-around',
-              margin: '0 2rem'
+              display: "flex",
+              justifyContent: "space-around",
+              margin: "0 2rem",
             }}
           >
             <Skeleton height={250} width={200} />
@@ -30,18 +31,20 @@ export default function AboutContainer() {
       ) : (
         <div className={styles._container}>
           <div className={styles._contentImage}>
-            {url === 'undefined' ? (
+            {url === "undefined" ? (
               <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
                 <Skeleton height={250} width={200} />
               </SkeletonTheme>
             ) : (
               <figure className={styles._contentImage_figure}>
-                <img
-                  src={url}
-                  alt={subtitle}
-                  className={styles._contentImage_img}
-                  loading="lazy"
-                />
+                {url.length > 0 && (
+                  <img
+                    src={url}
+                    alt={subtitle}
+                    className={styles._contentImage_img}
+                    loading="lazy"
+                  />
+                )}
               </figure>
             )}
           </div>
@@ -53,5 +56,5 @@ export default function AboutContainer() {
       )}
       <Social />
     </>
-  )
+  );
 }

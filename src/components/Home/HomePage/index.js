@@ -1,15 +1,16 @@
-import { useRouter } from 'next/router'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import { useRouter } from "next/router";
+import Image from "next/image";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 //import { IoIosArrowForward } from 'react-icons/io'
-import { useAppContext } from '../../../context/state'
-import ArrowAnimation from '../../ArrowAnimation'
-import styles from './Homepage.module.css'
+import { useAppContext } from "../../../context/state";
+import ArrowAnimation from "../../ArrowAnimation";
+import styles from "./Homepage.module.css";
 
 export default function HomePage() {
-  const router = useRouter()
-  const { data, load, error } = useAppContext()
-  const { hero = {} } = data
-  const { title, subtitle, contentTitle, url } = hero
+  const router = useRouter();
+  const { data, load, error } = useAppContext();
+  const { hero = {} } = data;
+  const { title, subtitle, contentTitle, url = "" } = hero;
 
   // const SIZE = '25px'
   // Siguiente
@@ -17,32 +18,37 @@ export default function HomePage() {
   //                 size={SIZE}
   //                 style={{ position: 'relative', top: '0.50em' }}
   //               />
+  const skel = () => (
+    <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
+      <Skeleton width={150} height={150} style={{ marginTop: "2rem" }} />
+    </SkeletonTheme>
+  );
   return (
     <>
       <div className={styles._container}>
         <div className={styles._content}>
           {load ? (
             <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
-              <div className={styles._content} style={{ margin: '0' }}>
+              <div className={styles._content} style={{ margin: "0" }}>
                 <Skeleton
                   count={2}
                   width={340}
                   height={30}
                   style={{
-                    margin: '1rem',
-                    display: 'flex',
-                    flexDirection: 'column'
+                    margin: "1rem",
+                    display: "flex",
+                    flexDirection: "column",
                   }}
                 />
                 <Skeleton
                   width={340}
                   height={70}
-                  style={{ marginTop: '2rem' }}
+                  style={{ marginTop: "2rem" }}
                 />
                 <Skeleton
                   width={150}
                   height={150}
-                  style={{ marginTop: '2rem' }}
+                  style={{ marginTop: "2rem" }}
                 />
               </div>
             </SkeletonTheme>
@@ -51,30 +57,27 @@ export default function HomePage() {
               <h1 className={styles._h1}>{title}</h1>
               <h2>{subtitle}</h2>
               <p className={styles._p}>{contentTitle}</p>
-              {load ? (
-                <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
-                  <Skeleton
-                    width={150}
-                    height={150}
-                    style={{ marginTop: '2rem' }}
-                  />
-                </SkeletonTheme>
-              ) : (
+              {url.length > 0 && (
                 <figure className={styles._figure}>
-                  <img
+                  <Image
                     src={url}
                     alt={title}
                     className={styles._img}
                     loading="lazy"
+                    width="auto"
+                    height="auto"
                   />
                 </figure>
               )}
             </>
           )}
 
-          <ArrowAnimation route={() => router.push('/skills')} />
+          <ArrowAnimation
+            style={{ zIndex: "3" }}
+            route={() => router.push("/skills")}
+          />
         </div>
       </div>
     </>
-  )
+  );
 }

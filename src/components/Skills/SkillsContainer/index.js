@@ -1,10 +1,9 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import ArrowAnimation from '../../ArrowAnimation'
-import SkillsItem from '../SkillsItem'
-import styles from './SkillsContainer.module.css'
+import { useRouter } from "next/router";
+import ArrowAnimation from "../../ArrowAnimation";
+import SkillsItem from "../SkillsItem";
+import styles from "./SkillsContainer.module.css";
 export default function SkillsContainer() {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <div className={styles._container}>
@@ -13,8 +12,8 @@ export default function SkillsContainer() {
       </div>
       <SkillsItem />
       <div className={styles._button}>
-        <ArrowAnimation route={() => router.push('/projects')} />
+        <ArrowAnimation route={() => router.push("/projects")} />
       </div>
     </div>
-  )
+  );
 }

@@ -86,6 +86,8 @@
   }
   ._active_hamburguer span:nth-child(2) {
     opacity: 0;
+    color: #fff;
+    background-color: #fff;
   }
 
   ._active_hamburguer span:nth-child(1) {

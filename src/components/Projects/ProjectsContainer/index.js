@@ -1,11 +1,10 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import ArrowAnimation from 'src/components/ArrowAnimation'
-import ProjectsItem from '../ProjectsItem'
-import styles from './ProjectsContainer.module.css'
+import { useRouter } from "next/router";
+import ArrowAnimation from "src/components/ArrowAnimation";
+import ProjectsItem from "../ProjectsItem";
+import styles from "./ProjectsContainer.module.css";
 
 export default function ProjectsContainer() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className={styles._container}>
       <div className={styles._title}>
@@ -13,8 +12,8 @@ export default function ProjectsContainer() {
       </div>
       <ProjectsItem />
       <div className={styles._button}>
-        <ArrowAnimation route={() => router.push('/about')} />
+        <ArrowAnimation route={() => router.push("/about")} />
       </div>
     </div>
-  )
+  );
 }

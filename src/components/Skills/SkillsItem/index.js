@@ -1,13 +1,12 @@
-import React from 'react'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import styles from './SkillsItem.module.css'
-import { useAppContext } from '../../../context/state'
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import styles from "./SkillsItem.module.css";
+import { useAppContext } from "../../../context/state";
 
 export default function SkillsItem() {
-  const { data, load, error, setLoad } = useAppContext()
-  const { skills = {} } = data
-  const { skillArray = [] } = skills
-  const NOTFOUND_POSTER = 'https://dummyimage.com/120x120.png'
+  const { data, load, error, setLoad } = useAppContext();
+  const { skills = {} } = data;
+  const { skillArray = [] } = skills;
+  const NOTFOUND_POSTER = "https://dummyimage.com/120x120.png";
 
   return (
     <>
@@ -18,21 +17,24 @@ export default function SkillsItem() {
               count={7}
               width={230}
               height={190}
-              style={{ margin: '1rem' }}
+              style={{ margin: "1rem" }}
             />
           </SkeletonTheme>
         ) : (
           <>
             {skillArray.map(({ id, img = NOTFOUND_POSTER, skill, name }) => (
               <div key={id} className={styles._skillCard}>
-                <figure className={styles._skillCard_figure}>
-                  <img
-                    src={img}
-                    alt={skill}
-                    style={{ height: 'auto', width: '100%' }}
-                    loading="lazy"
-                  />
-                </figure>
+                {img.length > 0 && (
+                  <figure className={styles._skillCard_figure}>
+                    <img
+                      src={img}
+                      alt={skill}
+                      loading="lazy"
+                      width={`100%`}
+                      height="auto"
+                    />
+                  </figure>
+                )}
 
                 <h2 className={styles._skillCard_title}>{name}</h2>
               </div>
@@ -41,5 +43,5 @@ export default function SkillsItem() {
         )}
       </div>
     </>
-  )
+  );
 }
