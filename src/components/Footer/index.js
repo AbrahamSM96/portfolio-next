@@ -1,13 +1,12 @@
-import React, { useEffect, useRef } from 'react'
-import { FaHeart } from 'react-icons/fa'
-
-import styles from './Footer.module.css'
+import React, { useEffect, useRef } from "react";
+import { FaHeart } from "react-icons/fa";
+import styles from "./Footer.module.css";
 export default function Footer() {
-  const refDate = useRef(null)
+  const refDate = useRef(null);
   useEffect(() => {
-    const date = new Date().getFullYear()
-    refDate.current.append(date)
-  }, [])
+    const date = new Date().getFullYear();
+    refDate.current.append(date);
+  }, []);
 
   return (
     <>
@@ -19,5 +18,5 @@ export default function Footer() {
         </span>
       </footer>
     </>
-  )
+  );
 }

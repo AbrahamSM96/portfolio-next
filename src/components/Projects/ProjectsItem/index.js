@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./ProjectsItem.module.css";
 import { useAppContext } from "../../../context/state";
@@ -27,15 +26,15 @@ export default function ProjectsItem() {
           {projectsArray.map(({ id, project, img = NOTFOUND_POSTER, url }) => (
             <div key={id} className={styles._projectCard}>
               <a href={url} target="_blank" rel="noreferrer">
+                {img.length > 0 && (
                 <figure className={styles._projectCard_figure}>
-                  {img.length > 0 && (
                     <img
                       className={styles._projectCard_img}
                       src={img}
                       alt={project}
                     />
-                  )}
                 </figure>
+                  )}
               </a>
               <h2 className={styles._projectCard_title}>{project}</h2>
             </div>

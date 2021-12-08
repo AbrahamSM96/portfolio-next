@@ -1,8 +1,24 @@
 import { memo } from "react";
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import dynamic from "next/dynamic";
 import Head from "next/head";
-import AboutContainer from "src/components/About/AboutContainer";
-import Footer from "src/components/Footer";
-
+const AboutContainer = dynamic(
+  () => import("src/components/About/AboutContainer"),
+  {
+    loading: () => (
+      <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
+        <Skeleton width={1440} height={500} />
+      </SkeletonTheme>
+    ),
+  },
+);
+const Footer = dynamic(() => import("src/components/Footer"), {
+  loading: () => (
+    <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
+      <Skeleton width={1440} height={60} />
+    </SkeletonTheme>
+  ),
+});
 function About() {
   return (
     <>

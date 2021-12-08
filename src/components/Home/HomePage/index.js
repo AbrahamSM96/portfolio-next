@@ -1,5 +1,4 @@
 import { useRouter } from "next/router";
-import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 //import { IoIosArrowForward } from 'react-icons/io'
 import { useAppContext } from "../../../context/state";
@@ -59,7 +58,7 @@ export default function HomePage() {
               <p className={styles._p}>{contentTitle}</p>
               {url.length > 0 && (
                 <figure className={styles._figure}>
-                  <Image
+                  <img
                     src={url}
                     alt={title}
                     className={styles._img}

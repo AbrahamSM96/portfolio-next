@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <html lang="es-MX">
       <Head>
         <title>Abraham Serrano | Frontend Developer</title>
         <meta charSet="utf-8" />
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
         />
         <meta
           property="og:title"
-          content="Abraham Serrano | Frontend Developer"
+          content="Abraham Serrano Montiel | Frontend Developer"
         />
         <meta
           property="og:description"
@@ -65,7 +65,7 @@ function MyApp({ Component, pageProps }) {
           />
         </AnimatePresence>
       </ContextWrapper>
-    </>
+    </html>
   );
 }
 

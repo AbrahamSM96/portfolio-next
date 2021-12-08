@@ -1,5 +1,4 @@
-import { useEffect, useRef } from "react";
-import Image from "next/image";
+import { useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
@@ -21,7 +20,7 @@ export default function Navbar() {
   };
   const toggleCloseMenu = () => {
     refContainerLinks.current.getElementsByTagName("a");
-    console.log(refContainerLinks.current.getElementsByTagName("a"));
+    // console.log(refContainerLinks.current.getElementsByTagName("a"));
     refHamburguer.current.classList.remove(styles._active_hamburguer);
     refContainerLinks.current.classList.remove(styles._active_container);
   };
@@ -43,7 +42,7 @@ export default function Navbar() {
               <>
                 {url.length > 0 && (
                   <Link href="/" passHref>
-                    <Image
+                    <img
                       src={url}
                       alt="Logo"
                       className={styles._logo_img}

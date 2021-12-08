@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./AboutContainer.module.css";
 import { useAppContext } from "../../../context/state";
@@ -9,7 +8,6 @@ export default function AboutContainer() {
   const { about = {}, contact = {}, social = {} } = data;
   const { url = "" } = contact;
   const { titleAbout, subtitle, contentAbout } = about;
-  console.log(url, "url");
   return (
     <>
       <div className={styles._title}>
