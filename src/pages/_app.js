@@ -25,10 +25,32 @@ function MyApp({ Component, pageProps }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const PATH = router.pathname;
+
+  const pathToTitleHead = (PATH) => {
+    const PATHS = {
+      "/": "Abraham Serrano Montiel",
+      "/skills": "Skills",
+      "/projects": "Projects",
+      "/about": "About",
+    };
+    const SUBTITLE = {
+      "/": "Fronted Developer",
+      "/skills": "Abraham Serrano Montiel",
+      "/projects": "Abraham Serrano Montiel",
+      "/about": "Abraham Serrano Montiel",
+    };
+    const PATH_DEFAULT = "/";
+    const PATH_TITLE = PATHS[PATH] || PATH_DEFAULT;
+    const PATH_NOW_SUBTITLE = SUBTITLE[PATH] || PATH_DEFAULT;
+    return { PATH_TITLE, PATH_NOW_SUBTITLE };
+  };
+
+  const { PATH_TITLE, PATH_NOW_SUBTITLE } = pathToTitleHead(PATH);
   return (
-    <html lang="es-MX">
+    <>
       <Head>
-        <title>Abraham Serrano | Frontend Developer</title>
+        <title>{`${PATH_TITLE} | ${PATH_NOW_SUBTITLE}`}</title>
         <meta charSet="utf-8" />
         <meta
           name="viewport"
@@ -56,8 +78,8 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <ContextWrapper>
-        <AnimatePresence exitBeforeEnter>
-          {router.pathname !== "/" && <Navbar />}
+        <AnimatePresence>
+          {PATH !== "/" && <Navbar />}
           <Component
             isFirstMount={isFirstMount}
             key={router.route}
@@ -65,7 +87,7 @@ function MyApp({ Component, pageProps }) {
           />
         </AnimatePresence>
       </ContextWrapper>
-    </html>
+    </>
   );
 }
 

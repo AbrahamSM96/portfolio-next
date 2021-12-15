@@ -8,6 +8,7 @@ export function useFetchAPI() {
 
   const fetchAPI = async () => {
     setError(null);
+    setLoad(true);
     try {
       const response = await fetch(API);
       const datas = await response.json();
