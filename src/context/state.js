@@ -1,21 +1,20 @@
-import { createContext, useContext } from 'react'
-import { useFetchAPI } from '../hooks/useFetchAPI'
+import { createContext, useContext } from "react";
+import { useFetchAPI } from "../hooks/useFetchAPI";
 
-const AppContext = createContext()
-
+const AppContext = createContext();
 export function ContextWrapper({ children }) {
-  const { data, load, error } = useFetchAPI()
+  const { data, load, error } = useFetchAPI();
   let sharedState = {
     data,
     load,
-    error
-  }
+    error,
+  };
 
   return (
     <AppContext.Provider value={sharedState}>{children}</AppContext.Provider>
-  )
+  );
 }
 
 export function useAppContext() {
-  return useContext(AppContext)
+  return useContext(AppContext);
 }
