@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
       "/about": "About",
     };
     const SUBTITLE = {
-      "/": "Fronted Developer",
+      "/": "Frontend Developer",
       "/skills": "Abraham Serrano Montiel",
       "/projects": "Abraham Serrano Montiel",
       "/about": "Abraham Serrano Montiel",
