@@ -1,10 +1,10 @@
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./ProjectsItem.module.css";
 import { useAppContext } from "../../../context/state";
+import Image from "next/image";
 
-export default function ProjectsItem() {
-  const { data, load, error } = useAppContext();
-  const { projects = {} } = data;
+export default function ProjectsItem({ projects }) {
+  const { load } = useAppContext();
   const { projectsArray = [] } = projects;
   const NOTFOUND_POSTER = "https://dummyimage.com/120x120.png";
 
@@ -27,14 +27,17 @@ export default function ProjectsItem() {
             <div key={id} className={styles._projectCard}>
               <a href={url} target="_blank" rel="noreferrer">
                 {img.length > 0 && (
-                <figure className={styles._projectCard_figure}>
-                    <img
+                  <figure className={styles._projectCard_figure}>
+                    <Image
                       className={styles._projectCard_img}
                       src={img}
                       alt={project}
+                      width={360}
+                      height={380}
+                      layout="responsive"
                     />
-                </figure>
-                  )}
+                  </figure>
+                )}
               </a>
               <h2 className={styles._projectCard_title}>{project}</h2>
             </div>
