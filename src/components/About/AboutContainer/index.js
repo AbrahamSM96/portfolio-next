@@ -2,16 +2,18 @@ import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./AboutContainer.module.css";
 import { useAppContext } from "../../../context/state";
 import Social from "src/components/Social";
+import Image from "next/image";
+import { useI18N } from "src/context/state";
 
-export default function AboutContainer() {
-  const { data, error, load } = useAppContext();
-  const { about = {}, contact = {}, social = {} } = data;
+export default function AboutContainer({ contact, about }) {
+  const { translate } = useI18N();
+  const { load } = useAppContext();
   const { url = "" } = contact;
-  const { titleAbout, subtitle, contentAbout } = about;
+  const { subtitle } = about;
   return (
     <>
       <div className={styles._title}>
-        <h1>{titleAbout}</h1>
+        <h1>{translate("TITLE_ABOUT")}</h1>
       </div>
       {load ? (
         <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
@@ -36,11 +38,13 @@ export default function AboutContainer() {
             ) : (
               <figure className={styles._contentImage_figure}>
                 {url.length > 0 && (
-                  <img
+                  <Image
                     src={url}
                     alt={subtitle}
                     className={styles._contentImage_img}
                     loading="lazy"
+                    width={300}
+                    height={300}
                   />
                 )}
               </figure>
@@ -48,7 +52,9 @@ export default function AboutContainer() {
           </div>
           <div className={styles._contentInfo}>
             <h1 className={styles._contentInfo_title}>{subtitle}</h1>
-            <p className={styles._contentInfo_data}>{contentAbout}</p>
+            <p className={styles._contentInfo_data}>
+              {translate("DESCRIPTION_ABOUT")}
+            </p>
           </div>
         </div>
       )}

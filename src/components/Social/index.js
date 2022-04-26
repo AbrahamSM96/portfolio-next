@@ -1,23 +1,22 @@
 import { GrLinkedinOption, GrGithub, GrFacebook } from "react-icons/gr";
 import styles from "./Social.module.css";
 import { useAppContext } from "../../context/state";
-import Footer from "../Footer";
 
 export default function Social() {
-  const { data, load, error } = useAppContext();
+  const { data, translate } = useAppContext();
   const { contact = {}, social = {} } = data;
 
   const { urlPortfolio, socialMedia = [] } = social;
-  const { titleContact, email } = contact;
+  const { email } = contact;
   const SIZE = "80";
   return (
     <>
       <div className={styles._contact_title}>
-        <h1>{titleContact}</h1>
+        <h1>{translate("TITLE_CONTACT")}</h1>
       </div>
       <div className={styles._container}>
         <div className={styles._contact}>
-          <h3>Cualquier duda:</h3>
+          <h2>{translate("SUBTITLE_CONTACT")}</h2>
           <span className={styles._contact_emailContainer}>
             <a href="https://outlook.live.com">{email}</a>
           </span>
@@ -29,6 +28,7 @@ export default function Social() {
                 href={socialMedia[0] ? socialMedia[0].url : ""}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Linkedin"
               >
                 <GrLinkedinOption size={SIZE} />
               </a>
@@ -38,6 +38,7 @@ export default function Social() {
                 href={socialMedia[1] ? socialMedia[2].url : ""}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Github"
               >
                 <GrGithub size={SIZE} />
               </a>
@@ -47,6 +48,7 @@ export default function Social() {
                 href={socialMedia[2] ? socialMedia[1].url : ""}
                 target="_blank"
                 rel="noreferrer"
+                aria-label="Facebook"
               >
                 <GrFacebook size={SIZE} />
               </a>
@@ -59,7 +61,7 @@ export default function Social() {
                 rel="Curriculum_AbrahamSM"
                 download={urlPortfolio}
               >
-                Curriculum
+                CV
               </a>
             </span>
           </div>

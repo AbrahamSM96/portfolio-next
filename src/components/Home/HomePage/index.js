@@ -2,15 +2,15 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 //import { IoIosArrowForward } from 'react-icons/io'
-import { useAppContext } from "../../../context/state";
+import { useAppContext, useI18N } from "../../../context/state";
 import ArrowAnimation from "../../ArrowAnimation";
 import styles from "./Homepage.module.css";
 
-export default function HomePage() {
+export default function HomePage({ hero }) {
   const router = useRouter();
-  const { data, load, error } = useAppContext();
-  const { hero = {} } = data;
-  const { title, subtitle, contentTitle, url = "" } = hero;
+  const { load } = useAppContext();
+  // const { hero = {} } = data;
+  const { title, subtitle, url = "" } = hero;
 
   // const SIZE = '25px'
   // Siguiente
@@ -18,11 +18,12 @@ export default function HomePage() {
   //                 size={SIZE}
   //                 style={{ position: 'relative', top: '0.50em' }}
   //               />
-  const skel = () => (
-    <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
-      <Skeleton width={150} height={150} style={{ marginTop: "2rem" }} />
-    </SkeletonTheme>
-  );
+  // const skel = () => (
+  //   <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
+  //     <Skeleton width={150} height={150} style={{ marginTop: "2rem" }} />
+  //   </SkeletonTheme>
+  // );
+  const { translate } = useI18N();
   return (
     <>
       <div className={styles._container}>
@@ -55,25 +56,22 @@ export default function HomePage() {
           ) : (
             <>
               <h1 className={styles._h1}>{title}</h1>
-              <h2>{subtitle}</h2>
-              <p className={styles._p}>{contentTitle}</p>
-              {url.length > 0 && (
-                <figure className={styles._figure}>
-                  <Image
-                    src={url}
-                    alt={title}
-                    className={styles._img}
-                    loading="lazy"
-                    width={150}
-                    height={150}
-                  />
-                </figure>
-              )}
+              <h2 className={styles._h2}>{subtitle}</h2>
+              <p className={styles._p}>{translate("DESCRIPTION")}</p>
+              <figure className={styles._figure}>
+                <Image
+                  src={url}
+                  alt={title}
+                  className={styles._img}
+                  layout="responsive"
+                  width={150}
+                  height={150}
+                />
+              </figure>
             </>
           )}
-
           <ArrowAnimation
-            style={{ zIndex: "3" }}
+            style={{ zIndex: "3", marginRight: 0 }}
             route={() => router.push("/skills")}
           />
         </div>
