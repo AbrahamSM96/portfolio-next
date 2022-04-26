@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50%, auto));
   margin: 2rem 2rem;
+  padding-bottom: 1rem;
 }
 ._contact {
   display: flex;
