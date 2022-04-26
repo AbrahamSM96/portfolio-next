@@ -11,9 +11,16 @@
 //     return config
 //   }
 // }
-
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
   images: {
     domains: ["i.imgur.com"],
   },
+  i18n: {
+    locales: ["en", "es"],
+    defaultLocale: "es",
+  },
 };
+
+module.exports = nextConfig;
