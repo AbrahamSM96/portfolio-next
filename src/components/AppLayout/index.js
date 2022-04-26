@@ -1,4 +1,4 @@
-export default function AppLayout({ children }) {
+export default function AppLayout() {
   return (
     <>
       <style></style>
