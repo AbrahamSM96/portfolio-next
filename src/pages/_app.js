@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { AnimatePresence } from "framer-motion";
 import { ContextWrapper } from "../context/state";
 import Navbar from "src/components/Navbar";
 import "../styles/globals.css";
@@ -103,14 +102,12 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <ContextWrapper>
-        <AnimatePresence>
-          {PATH !== "/" && <Navbar switchTheme={switchTheme} />}
-          <Component
-            isFirstMount={isFirstMount}
-            key={router.route}
-            {...pageProps}
-          />
-        </AnimatePresence>
+        {PATH !== "/" && <Navbar switchTheme={switchTheme} />}
+        <Component
+          isFirstMount={isFirstMount}
+          key={router.route}
+          {...pageProps}
+        />
       </ContextWrapper>
     </div>
   );
