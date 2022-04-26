@@ -1,8 +1,9 @@
 ._container {
-  background: linear-gradient(-45deg, #ffff, #2fe6af, #ffff, #2fe6af);
+  background: var(--background-radiant);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
   height: 100vh;
+  overflow: hidden !important;
 }
 ._content {
   display: flex;
@@ -15,11 +16,16 @@
 }
 ._h1 {
   margin: 0;
-  color: #e62f66;
+  color: var(--text-title);
+}
+
+._h2 {
+  color: var(--text-primary);
 }
 
 ._p {
   width: 60%;
+  color: var(--text-primary);
 }
 
 ._figure {
@@ -132,9 +138,15 @@
   }
 }
 
+@media (max-width: 730px) {
+}
+
 @media (min-width: 1024px) {
   /* ._content_button {
     align-self: flex-start;
+  } */
+  /* ._container {
+    height: 1080px;
   } */
   ._p {
     width: 40%;

@@ -35,4 +35,5 @@
 
 ._projectCard_title {
   font-weight: 400;
+  color: var(--text-primary);
 }

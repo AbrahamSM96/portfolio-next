@@ -1,12 +1,12 @@
 ._title {
   display: flex;
   justify-content: center;
+  color: var(--text-primary);
 }
 
 ._button {
   display: flex;
   justify-content: flex-end;
-  margin: 1rem;
 }
 
 @media (max-width: 730px) {

@@ -8,20 +8,27 @@
   flex-direction: column;
   align-items: center;
 }
+
+._contact h2 {
+  color: var(--text-primary);
+}
+
 ._contact_title {
   display: flex;
   justify-content: center;
+  color: var(--text-primary);
 }
 
 ._contact_emailContainer {
   padding: 0rem 1rem;
-  background: #000;
+  background: var(--background-email);
   border-radius: 40px;
   padding: 1rem;
 }
 ._contact_emailContainer a {
-  color: #2fe6af;
+  color: var(--text-title);
   font-size: 1em;
+  font-weight: bold;
 }
 
 ._social {
@@ -42,6 +49,10 @@
   margin: 0;
   height: auto;
   width: 100%;
+  fill: red;
+}
+._social_networks svg {
+  fill: var(--text-primary);
 }
 ._social_networks ._linkedin svg:hover {
   fill: #0e76a8;
@@ -59,9 +70,12 @@
 ._social_portfolio {
   display: inherit;
   justify-content: center;
+  color: var(--text-primary);
+  padding-bottom: 1rem;
 }
 ._social_portfolio a:hover {
   color: #2fe6af;
+  font-weight: bold;
 }
 
 @media (max-width: 730px) {

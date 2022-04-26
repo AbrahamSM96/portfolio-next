@@ -1,6 +1,7 @@
 ._title {
   display: flex;
   justify-content: center;
+  color: var(--text-primary);
 }
 
 ._container {
@@ -28,6 +29,7 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
+  color: var(--text-primary);
 }
 
 @media (max-width: 730px) {

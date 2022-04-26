@@ -22,4 +22,9 @@
 ._skillCard_title {
   font-weight: 400;
   margin: 2rem 1rem;
+  color: var(--text-primary);
+}
+
+._next {
+  background: #fff !important;
 }
