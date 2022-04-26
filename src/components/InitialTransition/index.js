@@ -52,7 +52,8 @@ export default function InitialTransition() {
           alignItems: "center",
           justifyContent: "center",
           inset: "0",
-          zIndex: "2",
+          zIndex: 2,
+          overflow: "hidden",
         }}
       >
         <motion.div
