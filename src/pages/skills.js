@@ -1,13 +1,19 @@
 import { memo } from "react";
-import Head from "next/head";
 import SkillsContainer from "src/components/Skills/SkillsContainer";
 
-function Skills() {
+function Skills({ skills }) {
   return (
     <>
-      <SkillsContainer />
+      <SkillsContainer skills={skills} />
     </>
   );
 }
 
 export default memo(Skills);
+
+export async function getStaticProps() {
+  const response = await fetch(`${process.env.API_URL}/api/data`);
+  const { skills } = await response.json();
+
+  return { props: { skills } };
+}
