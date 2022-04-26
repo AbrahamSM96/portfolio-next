@@ -1,0 +1,27 @@
+{
+  "DESCRIPTION": "Apasionado por las nuevas tecnologías que esta en constante aprendizaje y desarrollo.",
+  "TITLES_NAV": [
+    {
+      "href": "/",
+      "navTitle": "Inicio"
+    },
+    {
+      "href": "/skills",
+      "navTitle": "Habilidades"
+    },
+    {
+      "href": "/projects",
+      "navTitle": "Proyectos"
+    },
+    {
+      "href": "/about",
+      "navTitle": "Acerca de mí"
+    }
+  ],
+  "TITLE_SKILLS": "Habilidades",
+  "TITLE_PROJECTS": "Proyectos",
+  "TITLE_ABOUT": "Acerca de mí",
+  "TITLE_CONTACT": "Contacto",
+  "SUBTITLE_CONTACT": "Cualquier duda",
+  "DESCRIPTION_ABOUT": "Mi acercamiento al desarrollo web inicia por mi curiosidad por saber como funcionan las cosas, esa curiosidad crece con los años conociendo Javascript del lado del Frontend junto con React y del lado del Backend con NodeJS. Soy autodidacta en constante aprendizaje. \n Gamer 🎮 and car lover 🏎."
+}

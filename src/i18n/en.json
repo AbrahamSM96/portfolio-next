@@ -1,0 +1,27 @@
+{
+  "DESCRIPTION": "I love the new technologies that can facility the tasks of the daily life and I be constant learning.",
+  "TITLES_NAV": [
+    {
+      "href": "/",
+      "navTitle": "Home"
+    },
+    {
+      "href": "/skills",
+      "navTitle": "Skills"
+    },
+    {
+      "href": "/projects",
+      "navTitle": "Projects"
+    },
+    {
+      "href": "/about",
+      "navTitle": "About"
+    }
+  ],
+  "TITLE_SKILLS": "Skills",
+  "TITLE_PROJECTS": "Projects",
+  "TITLE_ABOUT": "About",
+  "TITLE_CONTACT": "Contact",
+  "SUBTITLE_CONTACT": "Any question:",
+  "DESCRIPTION_ABOUT": "My beginning to web development was to my curiosity to know how to work the things, this curiosity growth with the years getting to know JavaScript of the side to Front End with the most famous library React  and your framework NextJS and the side of Backend with NodeJS. I`m autodidact in constant learning. Gamer 🎮  and car lover 🏎."
+}

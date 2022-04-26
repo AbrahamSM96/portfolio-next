@@ -5,12 +5,36 @@ import { AnimatePresence } from "framer-motion";
 import { ContextWrapper } from "../context/state";
 import Navbar from "src/components/Navbar";
 import "../styles/globals.css";
+import useLocalStorage from "use-local-storage";
 
 function MyApp({ Component, pageProps }) {
   const [isFirstMount, setIsFirstMount] = useState(true);
+
   const router = useRouter();
+  const defaultDark =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [theme, setTheme] = useLocalStorage(
+    "theme",
+    defaultDark ? "dark" : "light"
+  );
+  const switchTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+  };
 
   useEffect(() => {
+    // to know when reload the page
+    const pageAccessedByReload =
+      (window.performance.navigation &&
+        window.performance.navigation.type === 1) ||
+      window.performance
+        .getEntriesByType("navigation")
+        .map((nav) => nav.type)
+        .includes("reload");
+    //id reload the page, reset theme
+    pageAccessedByReload ? setTheme("light") : setTheme("dark");
+
     const handleRouteChange = () => {
       isFirstMount && setIsFirstMount(false);
     };
@@ -22,6 +46,7 @@ function MyApp({ Component, pageProps }) {
     return () => {
       router.events.off("routeChangeStart", handleRouteChange);
     };
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -48,7 +73,7 @@ function MyApp({ Component, pageProps }) {
 
   const { PATH_TITLE, PATH_NOW_SUBTITLE } = pathToTitleHead(PATH);
   return (
-    <>
+    <div className="_global" data-theme={theme}>
       <Head>
         <title>{`${PATH_TITLE} | ${PATH_NOW_SUBTITLE}`}</title>
         <meta charSet="utf-8" />
@@ -79,7 +104,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <ContextWrapper>
         <AnimatePresence>
-          {PATH !== "/" && <Navbar />}
+          {PATH !== "/" && <Navbar switchTheme={switchTheme} />}
           <Component
             isFirstMount={isFirstMount}
             key={router.route}
@@ -87,21 +112,8 @@ function MyApp({ Component, pageProps }) {
           />
         </AnimatePresence>
       </ContextWrapper>
-    </>
+    </div>
   );
 }
 
-// MyApp.getInitialProps = async () => {
-//   const response = await fetch(`${process.env.API_URL}/api/data`);
-//   const {
-//     about,
-//     contact,
-//     hero,
-//     projects,
-//     skills,
-//     social,
-//   } = await response.json();
-
-//   return { props: { hero, about, skills, projects, contact, social } };
-// };
 export default MyApp;
