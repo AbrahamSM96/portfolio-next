@@ -1,13 +1,12 @@
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./SkillsItem.module.css";
 import { useAppContext } from "../../../context/state";
+import Image from "next/image";
 
-export default function SkillsItem() {
-  const { data, load, error, setLoad } = useAppContext();
-  const { skills = {} } = data;
+export default function SkillsItem({ skills }) {
+  const { load } = useAppContext();
   const { skillArray = [] } = skills;
   const NOTFOUND_POSTER = "https://dummyimage.com/120x120.png";
-
   return (
     <>
       <div className={styles._content}>
@@ -22,16 +21,17 @@ export default function SkillsItem() {
           </SkeletonTheme>
         ) : (
           <>
-            {skillArray.map(({ id, img = NOTFOUND_POSTER, skill, name }) => (
+            {skillArray.map(({ id, img = NOTFOUND_POSTER, name }) => (
               <div key={id} className={styles._skillCard}>
                 {img.length > 0 && (
                   <figure className={styles._skillCard_figure}>
-                    <img
+                    <Image
                       src={img}
-                      alt={skill}
-                      loading="lazy"
-                      width={`100%`}
-                      height="auto"
+                      alt={name}
+                      width={400}
+                      height={380}
+                      layout="responsive"
+                      className={name === "Next.js" ? styles._next : ""}
                     />
                   </figure>
                 )}
