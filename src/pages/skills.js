@@ -11,7 +11,7 @@ function Skills({ skills }) {
 
 export default memo(Skills);
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const response = await fetch(`${process.env.API_URL}/api/data`);
   const { skills } = await response.json();
 

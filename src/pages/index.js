@@ -21,7 +21,7 @@ function Home(props) {
 }
 export default memo(Home);
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const response = await fetch(`${process.env.API_URL}/api/data`);
   const { about, contact, hero, projects, skills, social } =
     await response.json();
