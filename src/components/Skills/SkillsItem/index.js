@@ -1,6 +1,6 @@
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./SkillsItem.module.css";
-import { useAppContext } from "../../../context/state";
+import { useAppContext } from "@context/state";
 import Image from "next/image";
 
 export default function SkillsItem({ skills }) {

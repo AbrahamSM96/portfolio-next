@@ -1,6 +1,6 @@
 import { GrLinkedinOption, GrGithub, GrFacebook } from "react-icons/gr";
 import styles from "./Social.module.css";
-import { useAppContext } from "../../context/state";
+import { useAppContext } from "@context/state";
 
 export default function Social() {
   const { data, translate } = useAppContext();

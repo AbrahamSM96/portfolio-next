@@ -1,22 +1,27 @@
 import Head from "next/head";
+import dynamic from "next/dynamic";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { ContextWrapper } from "../context/state";
-import Navbar from "src/components/Navbar";
+import { ContextWrapper } from "@context/state";
 import "../styles/globals.css";
 import useLocalStorage from "use-local-storage";
+
+const NavBar = dynamic(() => import("@components/Navbar"));
 
 function MyApp({ Component, pageProps }) {
   const [isFirstMount, setIsFirstMount] = useState(true);
 
   const router = useRouter();
+
   const defaultDark =
     typeof window !== "undefined" &&
     window.matchMedia("(prefers-color-scheme: dark)").matches;
+
   const [theme, setTheme] = useLocalStorage(
     "theme",
     defaultDark ? "dark" : "light"
   );
+
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
@@ -58,6 +63,7 @@ function MyApp({ Component, pageProps }) {
       "/projects": "Projects",
       "/about": "About",
     };
+
     const SUBTITLE = {
       "/": "Frontend Developer",
       "/skills": "Abraham Serrano Montiel",
@@ -102,7 +108,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <ContextWrapper>
-        {PATH !== "/" && <Navbar switchTheme={switchTheme} />}
+        {PATH !== "/" && <NavBar switchTheme={switchTheme} />}
         <Component
           isFirstMount={isFirstMount}
           key={router.route}

@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
-import ArrowAnimation from "src/components/ArrowAnimation";
+import ArrowAnimation from "@components/ArrowAnimation";
 import ProjectsItem from "../ProjectsItem";
 import styles from "./ProjectsContainer.module.css";
-import { useI18N } from "src/context/state";
+import { useI18N } from "@context/state";
 
 export default function ProjectsContainer({ projects }) {
   const { translate } = useI18N();

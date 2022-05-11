@@ -1,5 +1,9 @@
+import dynamic from "next/dynamic";
 import { memo } from "react";
-import ProjectsContainer from "src/components/Projects/ProjectsContainer";
+
+const ProjectsContainer = dynamic(() =>
+  import("@components/Projects/ProjectsContainer")
+);
 
 function Projects({ projects }) {
   return (

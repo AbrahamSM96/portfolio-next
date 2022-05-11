@@ -1,9 +1,9 @@
+import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./AboutContainer.module.css";
-import { useAppContext } from "../../../context/state";
-import Social from "src/components/Social";
-import Image from "next/image";
-import { useI18N } from "src/context/state";
+import { useAppContext } from "@context/state";
+import Social from "@components/Social";
+import { useI18N } from "@context/state";
 
 export default function AboutContainer({ contact, about }) {
   const { translate } = useI18N();

@@ -2,18 +2,17 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
-import { useAppContext } from "../../context/state";
+import { useAppContext } from "@context/state";
 import styles from "./Navbar.module.css";
 import { HiOutlineTranslate } from "react-icons/hi";
+
+import logo from "@img/LOGO-ASMZOOM.webp";
 
 export default function Navbar({ switchTheme }) {
   const { pathname, locale, locales } = useRouter();
   const refHamburguer = useRef(null);
   const refContainerLinks = useRef(null);
-  const { data, load, translate } = useAppContext();
-  const { hero = {} } = data;
-  const { url = "" } = hero;
+  const { translate } = useAppContext();
 
   const toggleHamburguer = () => {
     refHamburguer.current.classList.toggle(styles._active_hamburguer);
@@ -26,12 +25,10 @@ export default function Navbar({ switchTheme }) {
     refContainerLinks.current.classList.remove(styles._active_container);
   };
   const localesTranslate = locales.filter((loc) => loc !== locale);
-
   const ToggleTheme = () => {
     return (
       <div className={styles._wrapPowerSwitch} onClick={() => switchTheme()}>
         <div className={styles.power_switch}>
-          <input type="checkbox" />
           <div className={styles.button}>
             <svg className={styles.power_off}>
               <use xlinkHref="#line" className={styles.line} />
@@ -63,30 +60,21 @@ export default function Navbar({ switchTheme }) {
       </div>
     );
   };
-
   return (
     <>
       <nav className={styles._nav}>
         <figure className={styles._logo_figure}>
-          {load ? (
-            <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
-              <Skeleton height={30} width={30} />
-            </SkeletonTheme>
-          ) : (
-            <>
-              {url.length > 0 && (
-                <Link href="/" passHref>
-                  <Image
-                    src={url}
-                    alt="Logo"
-                    className={styles._logo_img}
-                    height={30}
-                    width={30}
-                  />
-                </Link>
-              )}
-            </>
-          )}
+          <Link href="/" passHref>
+            <a>
+              <Image
+                src={logo.src}
+                alt="Logo"
+                height="30px"
+                width="30px"
+                blurDataURL={logo.blurDataURL}
+              />
+            </a>
+          </Link>
         </figure>
         <div
           className={styles._container_links}

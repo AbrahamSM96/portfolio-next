@@ -1,6 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": "src",
+    "paths": {
+      "@components/*": ["components/*"],
+      "@context/*": ["context/*"],
+      "@hooks/*": ["hooks/*"],
+      "@i18n/*": ["i18n/*"],
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["styles/*"],
+      "@svg/*": ["svg/*"],
+      "@img/*": ["img/*"]
+    }
   },
   "eslint.validate": ["javascript"],
   "editor.codeActionsOnSave": {

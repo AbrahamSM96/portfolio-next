@@ -1,7 +1,7 @@
 import { memo } from "react";
-import HomePage from "../components/Home/HomePage";
-import InitialTransition from "src/components/InitialTransition";
-
+import dynamic from "next/dynamic";
+const InitialTrans = dynamic(() => import("@components/InitialTransition"));
+const HomePage = dynamic(() => import("@components/Home/HomePage"));
 function Home(props) {
   const { isFirstMount } = props;
   // const content = (isFirstMount) => ({
@@ -14,7 +14,7 @@ function Home(props) {
   // });
   return (
     <>
-      {isFirstMount && <InitialTransition />}
+      {isFirstMount && <InitialTrans />}
       <HomePage {...props} />
     </>
   );

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 //import { IoIosArrowForward } from 'react-icons/io'
 import { AnimatePresence } from "framer-motion";
-import { useAppContext, useI18N } from "../../../context/state";
+import { useAppContext, useI18N } from "@context/state";
 import ArrowAnimation from "../../ArrowAnimation";
 import styles from "./Homepage.module.css";
 

@@ -1,6 +1,9 @@
 import { memo } from "react";
-import SkillsContainer from "src/components/Skills/SkillsContainer";
+import dynamic from "next/dynamic";
 
+const SkillsContainer = dynamic(() =>
+  import("@components/Skills/SkillsContainer")
+);
 function Skills({ skills }) {
   return (
     <>

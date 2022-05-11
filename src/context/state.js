@@ -1,8 +1,8 @@
 import { createContext, useContext, useCallback } from "react";
 import { useRouter } from "next/router";
-import { useFetchAPI } from "../hooks/useFetchAPI";
-import en from "../i18n/en.json";
-import es from "../i18n/es.json";
+import { useFetchAPI } from "@hooks/useFetchAPI";
+import en from "@i18n/en.json";
+import es from "@i18n/es.json";
 const languages = { es, en };
 
 const AppContext = createContext();

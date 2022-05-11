@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import ArrowAnimation from "../../ArrowAnimation";
 import SkillsItem from "../SkillsItem";
 import styles from "./SkillsContainer.module.css";
-import { useI18N } from "src/context/state";
+import { useI18N } from "@context/state";
 
 export default function SkillsContainer({ skills }) {
   const { translate } = useI18N();

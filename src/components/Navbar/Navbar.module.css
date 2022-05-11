@@ -16,11 +16,6 @@
   cursor: pointer;
 }
 
-._logo_img {
-  width: 100%;
-  height: auto;
-}
-
 ._container_links {
   display: flex;
   justify-content: center;
@@ -93,6 +88,7 @@
   align-items: center;
   width: var(--width);
   height: var(--height);
+  cursor: pointer;
 }
 .power_switch .button {
   width: 100%;

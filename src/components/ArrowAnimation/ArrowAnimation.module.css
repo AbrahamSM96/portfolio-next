@@ -28,6 +28,7 @@
   background-image: url("../../svg/arrow-down.svg");
   background-repeat: no-repeat;
   background: var(--arrow);
+  fill: aliceblue !important;
 }
 
 ._scrolldown span:before,

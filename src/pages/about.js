@@ -1,6 +1,10 @@
+import dynamic from "next/dynamic";
 import { memo } from "react";
-import AboutContainer from "src/components/About/AboutContainer";
-import Footer from "src/components/Footer";
+
+const AboutContainer = dynamic(() =>
+  import("@components/About/AboutContainer")
+);
+const Footer = dynamic(() => import("@components/Footer"));
 
 function About(props) {
   return (
