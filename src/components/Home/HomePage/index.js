@@ -9,7 +9,7 @@ import styles from "./Homepage.module.css";
 
 export default function HomePage({ hero }) {
   const router = useRouter();
-  const { load } = useAppContext();
+  const { load = false } = useAppContext();
   // const { hero = {} } = data;
   const { title, subtitle, url = "" } = hero;
 
