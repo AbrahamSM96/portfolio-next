@@ -35,5 +35,7 @@
 
 ._projectCard_title {
   font-weight: 400;
+  margin: 1rem;
+  text-align: center;
   color: var(--text-primary);
 }
