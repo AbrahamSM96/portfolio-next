@@ -15,7 +15,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["i.imgur.com"],
+    domains: [
+      "i.imgur.com",
+      "res.cloudinary.com",
+      "firebasestorage.googleapis.com",
+    ],
   },
   i18n: {
     locales: ["en", "es"],

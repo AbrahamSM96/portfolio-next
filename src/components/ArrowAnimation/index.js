@@ -1,17 +1,13 @@
 import styles from "./ArrowAnimation.module.css";
-import { useRouter } from "next/router";
+// import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export default function ArrowAnimation({ route, style }) {
-  const [theme, setTheme] = useState("");
-  const router = useRouter();
-  const PATH = router.pathname;
-  const styleHome =
-    PATH === "/" && theme === "light"
-      ? "transparent"
-      : PATH === "/" && theme === "dark"
-      ? "var(--arrow)"
-      : "var(--arrow)";
+  const [theme, setTheme] = useState("light");
+  // const router = useRouter();
+  // const PATH = router.pathname;
+  console.log(theme === "light", theme, "THEME");
+  const styleHome = theme === '"light"' ? "transparent" : "var(--arrow)";
   // const validTheme = themeLocal === 'dark' ? {'background'}
   useEffect(() => {
     const themeLocal = localStorage.getItem("theme");
