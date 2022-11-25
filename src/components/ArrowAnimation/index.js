@@ -6,7 +6,6 @@ export default function ArrowAnimation({ route, style }) {
   const [theme, setTheme] = useState("light");
   // const router = useRouter();
   // const PATH = router.pathname;
-  console.log(theme === "light", theme, "THEME");
   const styleHome = theme === '"light"' ? "transparent" : "var(--arrow)";
   // const validTheme = themeLocal === 'dark' ? {'background'}
   useEffect(() => {
