@@ -1,8 +1,8 @@
 import styles from "./ArrowAnimation.module.css";
 // import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 
-export default function ArrowAnimation({ route, style }) {
+function ArrowAnimation({ route, style }) {
   const [theme, setTheme] = useState("light");
   // const router = useRouter();
   // const PATH = router.pathname;
@@ -29,3 +29,5 @@ export default function ArrowAnimation({ route, style }) {
     </>
   );
 }
+
+export default memo(ArrowAnimation);
