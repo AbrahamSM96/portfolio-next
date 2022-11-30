@@ -1,13 +1,11 @@
 import { memo } from "react";
 import dynamic from "next/dynamic";
 
-const SkillsContainer = dynamic(() =>
-  import("@components/Skills/SkillsContainer")
-);
+const ListContainer = dynamic(() => import("@commons/ListContainer"));
 function Skills({ skills }) {
   return (
     <>
-      <SkillsContainer skills={skills} />
+      <ListContainer skills={skills} />
     </>
   );
 }

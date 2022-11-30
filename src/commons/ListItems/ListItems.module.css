@@ -1,0 +1,54 @@
+._content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, auto));
+    gap: 10px;
+    margin: 0 2rem;
+    justify-content: center;
+  }
+  
+  ._listCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    transition: all 0.2s ease-in-out;
+  }
+
+  ._listCard:hover {
+    animation: ease-in 1s;
+    transform: scale(1.1);
+  }
+  
+  ._listCard_figure_projects {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  ._listCard_figure_skills {
+    width: 200px;
+    height: 200px;
+    border-radius: 20px;
+  }
+
+  ._listCard_img_projects {
+    object-fit: cover;
+    border-radius: 20px;
+  }
+
+  ._listCard_skills {
+    object-fit: initial;
+  }
+  
+  ._listCard_title {
+    font-weight: 400;
+    margin: 1rem;
+    text-align: center;
+    color: var(--text-primary);
+  }
+  
+  ._next {
+    background: #fff !important;
+  }
+  
