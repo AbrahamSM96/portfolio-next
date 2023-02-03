@@ -2,18 +2,41 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@components/*": ["components/*"],
-      "@commons/*": ["commons/*"],
-      "@context/*": ["context/*"],
-      "@hooks/*": ["hooks/*"],
-      "@i18n/*": ["i18n/*"],
-      "@pages/*": ["pages/*"],
-      "@styles/*": ["styles/*"],
-      "@svg/*": ["svg/*"],
-      "@img/*": ["img/*"]
+      "@components/*": [
+        "components/*"
+      ],
+      "@commons/*": [
+        "commons/*"
+      ],
+      "@context/*": [
+        "context/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@i18n/*": [
+        "i18n/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@svg/*": [
+        "svg/*"
+      ],
+      "@img/*": [
+        "img/*"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
     }
   },
-  "eslint.validate": ["javascript"],
+  "eslint.validate": [
+    "javascript"
+  ],
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   }
