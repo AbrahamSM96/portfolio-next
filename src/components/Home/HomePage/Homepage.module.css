@@ -31,7 +31,7 @@
 ._figure {
   width: 150px;
   height: 150px;
-  z-index: 1;
+  z-index: 0;
 }
 
 ._img {

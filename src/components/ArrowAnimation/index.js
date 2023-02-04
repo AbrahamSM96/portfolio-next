@@ -15,12 +15,7 @@ function ArrowAnimation({ route, style }) {
   return (
     <>
       <div className={styles._content_button} style={style}>
-        <div
-          className={styles._button}
-          style={{}}
-          onClick={route}
-          name="scroll"
-        >
+        <div className={styles._button} onClick={route} name="scroll">
           <div className={styles._scrolldown}>
             <span style={{ background: styleHome }} />
           </div>

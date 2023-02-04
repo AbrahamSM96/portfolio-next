@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import { useAppContext, useI18N } from "@context/state";
 import ArrowAnimation from "../../ArrowAnimation";
 import styles from "./Homepage.module.css";
+import { useEffect, useState } from "react";
 
 export default function HomePage({ hero }) {
   const router = useRouter();
@@ -25,6 +26,13 @@ export default function HomePage({ hero }) {
   //   </SkeletonTheme>
   // );
   const { translate } = useI18N();
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    const mountArrow = setTimeout(() => {
+      setShow(true);
+    }, 2400);
+    return () => clearTimeout(mountArrow);
+  }, []);
   return (
     <>
       <AnimatePresence>
@@ -72,10 +80,12 @@ export default function HomePage({ hero }) {
                 </figure>
               </>
             )}
-            <ArrowAnimation
-              style={{ zIndex: "0", marginRight: 0 }}
-              route={() => router.push("/skills")}
-            />
+            {show && (
+              <ArrowAnimation
+                style={{ zIndex: "2", marginRight: 0 }}
+                route={() => router.push("/skills")}
+              />
+            )}
           </div>
         </div>
       </AnimatePresence>
