@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "dev:api": "wrangler dev --local api/index.js"
+    "dev:api": "wrangler dev --local api/index.js",
+    "publish:api": "wrangler publish api/index.js"
   },
   "dependencies": {
     "framer-motion": " 6.3.0",
