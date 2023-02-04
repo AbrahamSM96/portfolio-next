@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { useAppContext } from "@context/state";
 import styles from "./Navbar.module.css";
 import { HiOutlineTranslate } from "react-icons/hi";
+import { GrPowerShutdown } from "react-icons/gr";
 
 import logo from "@img/LOGO-ASMZOOM.webp";
 
@@ -27,36 +28,12 @@ export default function Navbar({ switchTheme }) {
   const localesTranslate = locales.filter((loc) => loc !== locale);
   const ToggleTheme = () => {
     return (
-      <div className={styles._wrapPowerSwitch} onClick={() => switchTheme()}>
+      <div className={styles._wrapPowerSwitch} onClick={switchTheme}>
         <div className={styles.power_switch}>
           <div className={styles.button}>
-            <svg className={styles.power_off}>
-              <use xlinkHref="#line" className={styles.line} />
-              <use xlinkHref="#circle" className={styles.circle} />
-            </svg>
-            <svg className={styles.power_on}>
-              <use xlinkHref="#line" className={styles.line} />
-              <use xlinkHref="#circle" className={styles.circle} />
-            </svg>
+            <GrPowerShutdown size={50} className={styles.power} />
           </div>
         </div>
-
-        <svg xmlns="http://www.w3.org/2000/svg" style={{ display: "none" }}>
-          <symbol
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 150 150"
-            id="line"
-          >
-            <line x1="75" y1="34" x2="75" y2="58" />
-          </symbol>
-          <symbol
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 150 150"
-            id="circle"
-          >
-            <circle cx="75" cy="80" r="35" />
-          </symbol>
-        </svg>
       </div>
     );
   };
