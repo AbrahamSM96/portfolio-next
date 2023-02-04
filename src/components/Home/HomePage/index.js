@@ -11,7 +11,7 @@ export default function HomePage({ hero }) {
   const router = useRouter();
   const { load = false } = useAppContext();
   // const { hero = {} } = data;
-  const { title, subtitle, url = "" } = hero;
+  const { title, subtitle, img = "" } = hero[0];
 
   // const SIZE = '25px'
   // Siguiente
@@ -62,7 +62,7 @@ export default function HomePage({ hero }) {
                 <p className={styles._p}>{translate("DESCRIPTION")}</p>
                 <figure className={styles._figure}>
                   <Image
-                    src={url}
+                    src={img}
                     alt={title}
                     className={styles._img}
                     layout="responsive"
@@ -73,7 +73,7 @@ export default function HomePage({ hero }) {
               </>
             )}
             <ArrowAnimation
-              style={{ zIndex: "3", marginRight: 0 }}
+              style={{ zIndex: "0", marginRight: 0 }}
               route={() => router.push("/skills")}
             />
           </div>

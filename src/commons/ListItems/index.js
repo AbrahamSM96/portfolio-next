@@ -3,19 +3,13 @@ import styles from "./ListItems.module.css";
 import { useAppContext } from "@context/state";
 import Image from "next/image";
 
-export default function ListItems(props) {
+export default function ListItems({ dataResponse }) {
   const { load } = useAppContext();
-  const {
-    skills: { skillArray = [] } = {},
-    projects: { projectsArray = [] } = {},
-  } = props;
+  const { skills = [], projects = [] } = dataResponse[0];
   const NOTFOUND_POSTER = "https://dummyimage.com/120x120.png";
   const isSkills =
-    skillArray.length > 0
-      ? styles._listCard_skills
-      : styles._listCard_img_projects;
-  let data = skillArray.length > 0 ? skillArray : projectsArray;
-
+    skills.length > 0 ? styles._listCard_skills : styles._listCard_img_projects;
+  let dataSkills = skills.length > 0 ? skills : projects;
   const Skele = () => {
     return (
       <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
@@ -28,11 +22,10 @@ export default function ListItems(props) {
       </SkeletonTheme>
     );
   };
-
   const Images = () => {
     return (
       <>
-        {data.map(({ id, img = NOTFOUND_POSTER, name, project, url }) => (
+        {dataSkills.map(({ id, img = NOTFOUND_POSTER, name, url }) => (
           <div key={id} className={styles._listCard}>
             <a href={url && url} target="_blank" rel="noreferrer">
               {img.length > 0 && (
@@ -54,7 +47,7 @@ export default function ListItems(props) {
                 </figure>
               )}
             </a>
-            <h2 className={styles._listCard_title}>{name || project}</h2>
+            <h2 className={styles._listCard_title}>{name}</h2>
           </div>
         ))}
       </>

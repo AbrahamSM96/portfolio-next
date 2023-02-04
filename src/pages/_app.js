@@ -5,9 +5,12 @@ import { useRouter } from "next/router";
 import { ContextWrapper } from "@context/state";
 import "../styles/globals.css";
 import useLocalStorage from "use-local-storage";
+import * as ga from "@lib/googleAnalytics/index.js";
 
-const NavBar = dynamic(() => import("@components/Navbar"));
-
+const NavBar = dynamic(() => import("@components/Navbar"), {
+  loading: () => "Loading...",
+  ssr: false,
+});
 function MyApp({ Component, pageProps }) {
   const [isFirstMount, setIsFirstMount] = useState(true);
 
@@ -77,6 +80,23 @@ function MyApp({ Component, pageProps }) {
   };
 
   const { PATH_TITLE, PATH_NOW_SUBTITLE } = pathToTitleHead(PATH);
+
+  // Google anayltics
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      ga.pageview(url);
+    };
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on("routeChangeComplete", handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <div className="_global" data-theme={theme}>
       <Head>

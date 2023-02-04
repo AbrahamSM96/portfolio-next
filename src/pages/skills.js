@@ -2,10 +2,10 @@ import { memo } from "react";
 import dynamic from "next/dynamic";
 
 const ListContainer = dynamic(() => import("@commons/ListContainer"));
-function Skills({ skills }) {
+function Skills(props) {
   return (
     <>
-      <ListContainer skills={skills} />
+      <ListContainer {...props} />
     </>
   );
 }
@@ -13,8 +13,9 @@ function Skills({ skills }) {
 export default memo(Skills);
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.API_URL}/api/data`);
-  const { skills } = await response.json();
+  const API = `${process.env.API_URL}/skills`;
 
-  return { props: { skills } };
+  const response = await fetch(API);
+  const dataResponse = await response.json();
+  return { props: { dataResponse } };
 }

@@ -1,9 +1,10 @@
 import { memo } from "react";
 import dynamic from "next/dynamic";
-const InitialTrans = dynamic(() => import("@components/InitialTransition"));
-const HomePage = dynamic(() => import("@components/Home/HomePage"));
 function Home(props) {
+  const InitialTrans = dynamic(() => import("@components/InitialTransition"));
+  const HomePage = dynamic(() => import("@components/Home/HomePage"));
   const { isFirstMount } = props;
+
   // const content = (isFirstMount) => ({
   //   animate: {
   //     transition: {
@@ -22,9 +23,9 @@ function Home(props) {
 export default memo(Home);
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.API_URL}/api/data`);
-  const { about, contact, hero, projects, skills, social } =
-    await response.json();
+  const API_URL = `${process.env.API_URL}/hero`;
+  const response = await fetch(API_URL);
+  const hero = await response.json();
 
-  return { props: { hero, about, skills, projects, contact, social } };
+  return { props: { hero } };
 }

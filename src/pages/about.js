@@ -18,8 +18,18 @@ function About(props) {
 export default memo(About);
 
 export async function getStaticProps() {
-  const response = await fetch(`${process.env.API_URL}/api/data`);
-  const { about, contact, social } = await response.json();
+  const API_URLS = [
+    `${process.env.API_URL}/about`,
+    `${process.env.API_URL}/contact`,
+    `${process.env.API_URL}/social`,
+  ];
 
-  return { props: { about, contact, social } };
+  // eslint-disable-next-line no-undef
+  const dataResponse = await Promise.all(
+    API_URLS.map(async (url) => {
+      const resp = await fetch(url);
+      return resp.json();
+    })
+  );
+  return { props: { dataResponse } };
 }

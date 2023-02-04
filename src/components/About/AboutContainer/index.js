@@ -5,11 +5,14 @@ import { useAppContext } from "@context/state";
 import Social from "@components/Social";
 import { useI18N } from "@context/state";
 
-export default function AboutContainer({ contact, about }) {
+export default function AboutContainer({ dataResponse }) {
+  const { subtitle } = dataResponse[0][0];
+  const contactData = dataResponse[1][0];
+  const { img: imgContact } = contactData;
+  const socialData = dataResponse[2][0];
   const { translate } = useI18N();
   const { load } = useAppContext();
-  const { url = "" } = contact;
-  const { subtitle } = about;
+
   return (
     <>
       <div className={styles._title}>
@@ -31,15 +34,15 @@ export default function AboutContainer({ contact, about }) {
       ) : (
         <div className={styles._container}>
           <div className={styles._contentImage}>
-            {url === "undefined" ? (
+            {imgContact === "undefined" ? (
               <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
                 <Skeleton height={250} width={200} />
               </SkeletonTheme>
             ) : (
               <figure className={styles._contentImage_figure}>
-                {url.length > 0 && (
+                {imgContact.length > 0 && (
                   <Image
-                    src={url}
+                    src={imgContact}
                     alt={subtitle}
                     className={styles._contentImage_img}
                     loading="lazy"
@@ -58,7 +61,7 @@ export default function AboutContainer({ contact, about }) {
           </div>
         </div>
       )}
-      <Social />
+      <Social contactData={contactData} socialData={socialData} />
     </>
   );
 }
