@@ -2,18 +2,17 @@ import { useRouter } from "next/router";
 import ArrowAnimation from "@components/ArrowAnimation";
 import ListItems from "../ListItems";
 import styles from "./ListContainer.module.css";
-import { useI18N } from "@context/state";
+import { useI18n } from "@hooks/useI18N";
+import { nameSections } from "@utils/nameSections";
 
 export default function ListContainer({ dataResponse }) {
-  const { translate } = useI18N();
+  const { translate } = useI18n();
   const router = useRouter();
+
   const { title } = dataResponse[0];
-  const NAME_SECTION_OBJECT = {
-    Projects: "TITLE_PROJECTS",
-    Skills: "TITLE_SKILLS",
-  };
-  const RENAME_SECTIONS = NAME_SECTION_OBJECT[title];
-  const PATH_PUSH = RENAME_SECTIONS === "TITLE_SKILLS" ? "projects" : "about";
+
+  const { RENAME_SECTIONS, PATH_PUSH } = nameSections(title);
+
   return (
     <div className={styles._container}>
       <div className={styles._title}>

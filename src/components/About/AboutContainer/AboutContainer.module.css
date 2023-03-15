@@ -7,7 +7,7 @@
 ._container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(50%, auto));
-  margin: 0 2rem;
+  margin: 2rem;
 }
 ._contentImage {
   display: flex;

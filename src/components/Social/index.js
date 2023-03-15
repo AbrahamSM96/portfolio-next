@@ -1,12 +1,15 @@
 import { GrLinkedinOption, GrGithub } from "react-icons/gr";
 import styles from "./Social.module.css";
-import { useAppContext } from "@context/state";
+import { useI18n } from "@hooks/useI18N";
+
+const SIZE = "80";
 
 export default function Social({ contactData, socialData }) {
-  const { translate } = useAppContext();
   const { urlPortfolio, socialMedia = [] } = socialData;
   const { email } = contactData;
-  const SIZE = "80";
+
+  const { translate } = useI18n();
+
   const iconSocial = {
     Linkedin: <GrLinkedinOption size={SIZE} />,
     GitHub: <GrGithub size={SIZE} />,

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const blackBox = {
@@ -40,9 +40,17 @@ const text = {
   },
 };
 export default function InitialTransition() {
+  const [zTransition, setZtransition] = useState(true);
   useState(() => {
     typeof windows !== "undefined" && window.scrollTo(0, 0);
   }, []);
+  useEffect(() => {
+    const mountArrow = setTimeout(() => {
+      setZtransition(false);
+    }, 2500);
+    return () => clearTimeout(mountArrow);
+  }, []);
+  const transitionZindex = zTransition ? 3 : 2;
   return (
     <>
       <div
@@ -52,7 +60,7 @@ export default function InitialTransition() {
           alignItems: "center",
           justifyContent: "center",
           inset: "0",
-          zIndex: 2,
+          zIndex: transitionZindex,
           overflow: "hidden",
         }}
       >

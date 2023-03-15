@@ -1,27 +1,19 @@
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import styles from "./ListItems.module.css";
-import { useAppContext } from "@context/state";
 import Image from "next/image";
 
 export default function ListItems({ dataResponse }) {
-  const { load } = useAppContext();
   const { skills = [], projects = [] } = dataResponse[0];
+
   const NOTFOUND_POSTER = "https://dummyimage.com/120x120.png";
-  const isSkills =
-    skills.length > 0 ? styles._listCard_skills : styles._listCard_img_projects;
-  let dataSkills = skills.length > 0 ? skills : projects;
-  const Skele = () => {
-    return (
-      <SkeletonTheme color="#d3d3d3" highlightColor="#706f6f">
-        <Skeleton
-          count={7}
-          width={230}
-          height={190}
-          style={{ margin: "1rem" }}
-        />
-      </SkeletonTheme>
-    );
-  };
+
+  const SKILLS_VALIDATE = skills.length > 0;
+
+  const isSkills = SKILLS_VALIDATE
+    ? styles._listCard_skills
+    : styles._listCard_img_projects;
+
+  const dataSkills = SKILLS_VALIDATE > 0 ? skills : projects;
+
   const Images = () => {
     return (
       <>
@@ -56,7 +48,7 @@ export default function ListItems({ dataResponse }) {
 
   return (
     <section className={styles._content}>
-      {load ? <Skele /> : <Images />}
+      <Images />
     </section>
   );
 }

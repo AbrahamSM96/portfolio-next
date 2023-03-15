@@ -9,6 +9,7 @@ export default function Footer() {
     const date = new Date().getFullYear();
     refDate.current.append(date);
   }, []);
+
   return (
     <>
       <footer className={styles._footer}>

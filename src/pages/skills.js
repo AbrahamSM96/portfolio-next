@@ -2,6 +2,7 @@ import { memo } from "react";
 import dynamic from "next/dynamic";
 
 const ListContainer = dynamic(() => import("@commons/ListContainer"));
+
 function Skills(props) {
   return (
     <>
@@ -17,5 +18,6 @@ export async function getStaticProps() {
 
   const response = await fetch(API);
   const dataResponse = await response.json();
+
   return { props: { dataResponse } };
 }

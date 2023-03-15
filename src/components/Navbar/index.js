@@ -2,30 +2,33 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useAppContext } from "@context/state";
 import styles from "./Navbar.module.css";
 import { HiOutlineTranslate } from "react-icons/hi";
 import { GrPowerShutdown } from "react-icons/gr";
 
 import logo from "@img/LOGO-ASMZOOM.webp";
+import { useI18n } from "@hooks/useI18N";
 
 export default function Navbar({ switchTheme }) {
   const { pathname, locale, locales } = useRouter();
+
   const refHamburguer = useRef(null);
   const refContainerLinks = useRef(null);
-  const { translate } = useAppContext();
+
+  const { translate } = useI18n();
 
   const toggleHamburguer = () => {
     refHamburguer.current.classList.toggle(styles._active_hamburguer);
     refContainerLinks.current.classList.toggle(styles._active_container);
   };
+
   const toggleCloseMenu = () => {
     refContainerLinks.current.getElementsByTagName("a");
-    // console.log(refContainerLinks.current.getElementsByTagName("a"));
-    refHamburguer.current.classList.remove(styles._active_hamburguer);
     refContainerLinks.current.classList.remove(styles._active_container);
+    refHamburguer.current.classList.remove(styles._active_hamburguer);
   };
   const localesTranslate = locales.filter((loc) => loc !== locale);
+
   const ToggleTheme = () => {
     return (
       <div className={styles._wrapPowerSwitch} onClick={switchTheme}>
@@ -37,6 +40,7 @@ export default function Navbar({ switchTheme }) {
       </div>
     );
   };
+
   return (
     <>
       <nav className={styles._nav}>
@@ -78,7 +82,7 @@ export default function Navbar({ switchTheme }) {
         </div>
         <div
           className={styles._hamburguer}
-          onClick={() => toggleHamburguer()}
+          onClick={toggleHamburguer}
           ref={refHamburguer}
         >
           <span></span>

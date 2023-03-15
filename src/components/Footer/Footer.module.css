@@ -1,5 +1,5 @@
 ._footer {
-  position: absolute;
+  /* position: absolute; */
   bottom: 0;
   padding: 1rem;
   background-color: var(--backgroud-footer);

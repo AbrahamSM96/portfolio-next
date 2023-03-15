@@ -18,7 +18,9 @@ export default memo(Projects);
 
 export async function getStaticProps() {
   const API = `${process.env.API_URL}/projects`;
+
   const response = await fetch(API);
   const dataResponse = await response.json();
+
   return { props: { dataResponse } };
 }

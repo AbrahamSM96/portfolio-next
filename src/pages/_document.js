@@ -1,13 +1,11 @@
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
+  const GOOGLE_TAG_MANAGER = `https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`;
   return (
     <Html lang="es-MX">
       <Head>
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
-        />
+        <script async src={GOOGLE_TAG_MANAGER} />
         <script
           dangerouslySetInnerHTML={{
             __html: `

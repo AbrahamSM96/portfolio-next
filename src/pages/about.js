@@ -31,5 +31,6 @@ export async function getStaticProps() {
       return resp.json();
     })
   );
+
   return { props: { dataResponse } };
 }

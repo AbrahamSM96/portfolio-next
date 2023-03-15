@@ -1,83 +1,25 @@
+import { useEffect } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { ContextWrapper } from "@context/state";
-import "../styles/globals.css";
-import useLocalStorage from "use-local-storage";
+
 import * as ga from "@lib/googleAnalytics/index.js";
+import PortfolioProvider from "@context/PortfolioProvider";
+import { useDarkTheme } from "@hooks/useDarkTheme";
+import { pathToTitleHead } from "@utils/pathToTitleHead";
+
+import "../styles/globals.css";
 
 const NavBar = dynamic(() => import("@components/Navbar"), {
   loading: () => "Loading...",
   ssr: false,
 });
+
 function MyApp({ Component, pageProps }) {
-  const [isFirstMount, setIsFirstMount] = useState(true);
-
   const router = useRouter();
-
-  const defaultDark =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-  const [theme, setTheme] = useLocalStorage(
-    "theme",
-    defaultDark ? "dark" : "light"
-  );
-
-  const switchTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-  };
-
-  useEffect(() => {
-    // to know when reload the page
-    const pageAccessedByReload =
-      (window.performance.navigation &&
-        window.performance.navigation.type === 1) ||
-      window.performance
-        .getEntriesByType("navigation")
-        .map((nav) => nav.type)
-        .includes("reload");
-    //id reload the page, reset theme
-    pageAccessedByReload ? setTheme("light") : setTheme("dark");
-
-    const handleRouteChange = () => {
-      isFirstMount && setIsFirstMount(false);
-    };
-
-    router.events.on("routeChangeStart", handleRouteChange);
-
-    // If the component is unmounted, unsubscribe
-    // from the event with the `off` method:
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const PATH = router.pathname;
 
-  const pathToTitleHead = (PATH) => {
-    const PATHS = {
-      "/": "Abraham Serrano Montiel",
-      "/skills": "Skills",
-      "/projects": "Projects",
-      "/about": "About",
-    };
-
-    const SUBTITLE = {
-      "/": "Frontend Developer",
-      "/skills": "Abraham Serrano Montiel",
-      "/projects": "Abraham Serrano Montiel",
-      "/about": "Abraham Serrano Montiel",
-    };
-    const PATH_DEFAULT = "/";
-    const PATH_TITLE = PATHS[PATH] || PATH_DEFAULT;
-    const PATH_NOW_SUBTITLE = SUBTITLE[PATH] || PATH_DEFAULT;
-    return { PATH_TITLE, PATH_NOW_SUBTITLE };
-  };
+  const { theme, switchTheme } = useDarkTheme();
 
   const { PATH_TITLE, PATH_NOW_SUBTITLE } = pathToTitleHead(PATH);
 
@@ -127,14 +69,10 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <ContextWrapper>
+      <PortfolioProvider>
         {PATH !== "/" && <NavBar switchTheme={switchTheme} />}
-        <Component
-          isFirstMount={isFirstMount}
-          key={router.route}
-          {...pageProps}
-        />
-      </ContextWrapper>
+        <Component key={router.route} {...pageProps} />
+      </PortfolioProvider>
     </div>
   );
 }
