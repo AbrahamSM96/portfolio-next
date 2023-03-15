@@ -1,6 +1,6 @@
 import { createContext, useContext, useCallback } from "react";
 import { useRouter } from "next/router";
-import { useFetchAPI } from "@hooks/useFetchAPI";
+// import { useFetchAPI } from "@hooks/useFetchAPI";
 import en from "@i18n/en.json";
 import es from "@i18n/es.json";
 const languages = { es, en };
@@ -24,11 +24,11 @@ export function ContextWrapper({ children }) {
     [locale]
   );
 
-  const { data, load, error } = useFetchAPI();
+  // const { data, load, error } = useFetchAPI();
   let sharedState = {
-    data,
-    load,
-    error,
+    // data,
+    // load,
+    // error,
     translate,
   };
 
