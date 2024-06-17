@@ -9,7 +9,8 @@ import { HiOutlineTranslate } from "react-icons/hi";
 import logo from "@img/LOGO-ASMZOOM.webp";
 import { useI18n } from "@hooks/useI18N";
 
-export default function Navbar({ switchTheme }) {
+// export default function Navbar({ switchTheme }) {
+export default function Navbar() {
   const { pathname, locale, locales } = useRouter();
 
   const refHamburguer = useRef(null);
