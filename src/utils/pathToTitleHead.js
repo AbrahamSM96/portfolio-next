@@ -4,6 +4,7 @@ export const pathToTitleHead = (PATH) => {
     "/skills": "Skills",
     "/projects": "Projects",
     "/about": "About",
+    "/experience": "Experience",
   };
 
   const SUBTITLE = {
@@ -11,6 +12,7 @@ export const pathToTitleHead = (PATH) => {
     "/skills": "Abraham Serrano Montiel",
     "/projects": "Abraham Serrano Montiel",
     "/about": "Abraham Serrano Montiel",
+    "/experience": "Abraham Serrano Montiel",
   };
   const PATH_DEFAULT = "/";
   const PATH_TITLE = PATHS[PATH] || PATH_DEFAULT;
