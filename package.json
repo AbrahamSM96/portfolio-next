@@ -14,11 +14,16 @@
     "publish:api": "wrangler publish api/index.js"
   },
   "dependencies": {
+    "@ctrl/tinycolor": "^4.0.3",
+    "@deno/kv": "^0.7.0",
+    "@fontsource/fira-code": "^5.0.17",
+    "atropos": "^2.0.2",
+    "chroma-js": "^2.4.2",
     "framer-motion": " 6.3.0",
-    "hono": "2.7.5",
-    "next": "12.1.5",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "hono": "^4.0.10",
+    "next": "15.0.0-canary.25",
+    "react": "19.0.0-rc.0",
+    "react-dom": "19.0.0-rc.0",
     "react-icons": "4.3.1",
     "react-loading-skeleton": "3.1.0",
     "use-local-storage": "2.3.6"
@@ -29,12 +34,16 @@
     "@testing-library/react": "13.2.0",
     "babel-jest": "28.1.0",
     "eslint": "7.32.0",
-    "eslint-config-next": "12.1.5",
+    "eslint-config-next": "^14.1.2",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.0.0",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
     "prettier": "2.6.2",
-    "wrangler": "2.9.0"
+    "standard": "^17.1.0",
+    "wrangler": "^2.21.0"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }
