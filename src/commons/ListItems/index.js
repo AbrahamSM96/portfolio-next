@@ -1,3 +1,5 @@
+"use server";
+
 import styles from "./ListItems.module.css";
 import Image from "next/image";
 
@@ -31,10 +33,10 @@ export default function ListItems({ dataResponse }) {
                   <Image
                     src={img}
                     alt={name}
-                    width={400}
-                    height={380}
-                    layout="responsive"
+                    fill
+                    sizes="(min-width: 1024px) 200px, (min-width: 768px) 150px, 100px"
                     className={isSkills}
+                    priority
                   />
                 </figure>
               )}

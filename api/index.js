@@ -1,11 +1,11 @@
 import { Hono } from "hono";
 import { serveStatic } from "hono/serve-static.module";
-import about from "../db/about.json";
-import contact from "../db/contact.json";
-import hero from "../db/hero.json";
-import projects from "../db/projects.json";
-import skills from "../db/skills.json";
-import social from "../db/social.json";
+import about from "../src/db/about.json";
+import contact from "../src/db/contact.json";
+import hero from "../src/db/hero.json";
+import projects from "../src/db/projects.json";
+import skills from "../src/db/skills.json";
+import social from "../src/db/social.json";
 
 const app = new Hono();
 

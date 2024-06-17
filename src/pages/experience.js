@@ -1,20 +1,12 @@
-import Experience from "@components/Experience";
-import dynamic from "next/dynamic";
 import { memo } from "react";
 
-const Footer = dynamic(() => import("@components/Footer"));
+import ExperienceComponent from "@components/Experience";
 
-function About(props) {
-  return (
-    <>
-      <Experience {...props} />
-      <Footer />
-    </>
-  );
+function Experience(props) {
+  return <ExperienceComponent {...props} />;
 }
 
-export default memo(About);
-
+export default memo(Experience);
 export async function getStaticProps() {
   const API_URLS = [
     `${process.env.API_URL}/about`,

@@ -4,9 +4,8 @@ import { useI18n } from "@hooks/useI18N";
 
 const SIZE = "80";
 
-export default function Social({ contactData, socialData }) {
+export default function Social({ socialData }) {
   const { urlPortfolio, socialMedia = [] } = socialData;
-  const { email } = contactData;
 
   const { translate } = useI18n();
 
@@ -18,15 +17,13 @@ export default function Social({ contactData, socialData }) {
   return (
     <>
       <div className={styles._contact_title}>
-        <h1>{translate("TITLE_CONTACT")}</h1>
+        <h1>
+          {"<"}
+          {translate("TITLE_CONTACT")}
+          {"/>"}
+        </h1>
       </div>
       <div className={styles._container}>
-        <div className={styles._contact}>
-          <h2>{translate("SUBTITLE_CONTACT")}</h2>
-          <span className={styles._contact_emailContainer}>
-            <a href="https://outlook.live.com">{email}</a>
-          </span>
-        </div>
         <div className={styles._social}>
           <div className={styles._social_networks}>
             {socialMedia.map(({ id, url, name }) => {
@@ -50,15 +47,13 @@ export default function Social({ contactData, socialData }) {
             })}
           </div>
           <div className={styles._social_portfolio}>
-            <span>
-              <a
-                href={urlPortfolio}
-                rel="Curriculum_AbrahamSM"
-                download={urlPortfolio}
-              >
-                CV
-              </a>
-            </span>
+            <a
+              href={urlPortfolio}
+              rel="Curriculum_AbrahamSM"
+              download={urlPortfolio}
+            >
+              CV
+            </a>
           </div>
         </div>
       </div>

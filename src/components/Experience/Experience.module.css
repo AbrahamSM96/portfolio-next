@@ -1,0 +1,91 @@
+/* import "@fontsource/fira-code"; */
+
+._experience_container {
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  background-color: #14121c;
+  font-family: "Fira Code", monospace, sans-serif, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 20px 0;
+}
+
+._experience_wrap {
+  padding-left: 5%;
+}
+
+._code_wrap {
+  margin-left: 16%;
+  padding: 20px 0;
+  height: auto;
+}
+
+._lineCode {
+  position: relative;
+}
+
+._timeline {
+  background-color: #5918df;
+  height: 300%;
+  left: 19.5%;
+  position: absolute;
+  top: 13px;
+  width: 1px;
+  z-index: 1;
+}
+
+._lineCode::before {
+  content: attr(data-line-nr);
+  color: #3b3553;
+  position: absolute;
+  left: -40px;
+}
+
+._variables {
+  color: #ffff00;
+}
+
+._variables_name {
+  color: #ff00ff;
+}
+
+._variables_value {
+  color: chocolate;
+}
+
+._functions {
+  color: mediumturquoise;
+}
+
+._html_tag {
+  color: #98fb98;
+}
+
+._dot {
+  color: #3b3553;
+}
+
+@media (width <= 768px) {
+  ._experience_container {
+    padding: 0;
+  }
+
+  ._experience_wrap {
+    padding-left: 0;
+  }
+
+  ._code_wrap {
+    padding: 0;
+    margin-left: 12%;
+  }
+  
+
+  ._timeline {
+    left: 9%;
+  }
+/* 
+  ._dot {
+    display: none;
+  } */
+}

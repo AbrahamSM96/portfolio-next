@@ -26,10 +26,13 @@
     border-radius: 20px;
     cursor: pointer;
   }
+
   ._listCard_figure_skills {
-    width: 200px;
-    height: 200px;
+    width: 140px;
+    height: 140px;
     border-radius: 20px;
+    margin: 0;
+    position: relative;
   }
 
   ._listCard_img_projects {
@@ -45,7 +48,8 @@
     font-weight: 400;
     margin: 1rem;
     text-align: center;
-    color: var(--text-primary);
+    /* color: var(--text-primary); */
+    color: #3b3553;
   }
   
   ._next {

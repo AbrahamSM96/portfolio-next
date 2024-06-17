@@ -1,20 +1,15 @@
-import { useEffect, useRef } from "react";
+"use server";
+
 import { FaHeart } from "react-icons/fa";
 import styles from "./Footer.module.css";
+import DynamicYear from "./DynamicYear";
 
 export default function Footer() {
-  const refDate = useRef(null);
-
-  useEffect(() => {
-    const date = new Date().getFullYear();
-    refDate.current.append(date);
-  }, []);
-
   return (
     <>
       <footer className={styles._footer}>
         <span>©</span>
-        <span ref={refDate}></span>
+        <DynamicYear />
         <span>
           , Made with <FaHeart className={styles._footer_heart} /> by AbrahamSM
         </span>

@@ -1,7 +1,7 @@
 import { memo } from "react";
 import dynamic from "next/dynamic";
 
-const ListContainer = dynamic(() => import("@commons/ListContainer"));
+const ProjectContainer = dynamic(() => import("@components/Projects"));
 
 function Projects(props) {
   return (
@@ -9,7 +9,7 @@ function Projects(props) {
       {/* <motion.section exit={{ opacity: 0 }}>
      
       </motion.section> */}
-      <ListContainer {...props} />
+      <ProjectContainer {...props} />
     </>
   );
 }

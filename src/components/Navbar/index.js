@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "./Navbar.module.css";
 import { HiOutlineTranslate } from "react-icons/hi";
-import { GrPowerShutdown } from "react-icons/gr";
+// import { GrPowerShutdown } from "react-icons/gr";
 
 import logo from "@img/LOGO-ASMZOOM.webp";
 import { useI18n } from "@hooks/useI18N";
@@ -29,32 +29,30 @@ export default function Navbar({ switchTheme }) {
   };
   const localesTranslate = locales.filter((loc) => loc !== locale);
 
-  const ToggleTheme = () => {
-    return (
-      <div className={styles._wrapPowerSwitch} onClick={switchTheme}>
-        <div className={styles.power_switch}>
-          <div className={styles.button}>
-            <GrPowerShutdown size={50} className={styles.power} />
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // const ToggleTheme = () => {
+  //   return (
+  //     <div className={styles._wrapPowerSwitch} onClick={switchTheme}>
+  //       <div className={styles.power_switch}>
+  //         <div className={styles.button}>
+  //           <GrPowerShutdown size={50} className={styles.power} />
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
 
   return (
     <>
       <nav className={styles._nav}>
         <figure className={styles._logo_figure}>
           <Link href="/" passHref>
-            <a>
-              <Image
-                src={logo.src}
-                alt="Logo"
-                height="30px"
-                width="30px"
-                blurDataURL={logo.blurDataURL}
-              />
-            </a>
+            <Image
+              src={logo.src}
+              alt="Logo"
+              height={30}
+              width={30}
+              blurDataURL={logo.blurDataURL}
+            />
           </Link>
         </figure>
         <div
@@ -65,20 +63,22 @@ export default function Navbar({ switchTheme }) {
           {translate("TITLES_NAV").map(({ href, navTitle }) => {
             const activeStyleNav = pathname === href ? styles._linksPath : "";
             return (
-              <Link href={href} key={`id-${navTitle}`}>
-                <a className={activeStyleNav}>{navTitle}</a>
+              <Link
+                href={href}
+                key={`id-${navTitle}`}
+                className={activeStyleNav}
+              >
+                {navTitle}
               </Link>
             );
           })}
           <div className={styles._translate_button}>
             <Link href="/" locale={localesTranslate[0]}>
-              <a>
-                {localesTranslate[0]}
-                <HiOutlineTranslate size={28} />
-              </a>
+              {localesTranslate[0]}
+              <HiOutlineTranslate size={28} />
             </Link>
           </div>
-          <ToggleTheme />
+          {/* <ToggleTheme /> */}
         </div>
         <div
           className={styles._hamburguer}

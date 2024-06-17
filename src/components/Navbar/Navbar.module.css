@@ -2,11 +2,13 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: var(--background);
+  background-image: linear-gradient(-180deg, #0e0c16, #0e0c16 88%, #0e0c16 99%);
+  transition: all 1s cubic-bezier(.165,.84,.44,1);
   height: 100px;
   width: 100%;
   padding: 1rem;
   top: 0;
+  
 }
 
 ._logo_figure {
@@ -20,23 +22,26 @@
   display: flex;
   justify-content: center;
   padding: 1rem;
+  transition: color 1s ease-out 100ms;
 }
 
 ._container_links a {
-  color: var(--text-primary);
+  color: #2fe6af;
   background: transparent;
   border: none;
   cursor: pointer;
   padding: 0 0.5rem;
   margin: 0.5rem 0;
 }
+
 ._container_links a:hover {
-  color: #2fe6af;
+  color: #e62f66;
+  font-weight: bold;
 }
 
 ._linksPath {
   font-weight: 800 !important;
-  color: #2fe6af !important;
+  color: #e62f66 !important;
 }
 
 ._hamburguer {
@@ -50,8 +55,8 @@
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background-color: var(--text-primary);
-  color: #000;
+  background-color: #e62f66;
+  color: #e62f66;
 }
 
 ._translate_button {
@@ -182,20 +187,23 @@
   ._nav {
     position: sticky;
     z-index: 1;
-    background: var(--background);
+      box-shadow: inset 0 35px 13px rgba(14,12,22,.85);
+
+    /* background: var(--background); */
+    z-index: 10;
   }
   ._container_links {
     position: fixed;
     left: -100%;
     top: 5rem;
     flex-direction: column;
-    background-color: #fff;
+    background-image: linear-gradient(-180deg, #0e0c16, #0e0c16 88%, #0e0c16 99%);
     width: 100%;
     border-radius: 10px;
     text-align: center;
     transition: 0.3s;
-    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-  }
+    z-index:9;
+    }
   ._container_links a {
     margin: 0.5rem 0;
   }
@@ -207,6 +215,7 @@
   }
   ._active_container {
     left: 0;
+    box-shadow: 0 0 90px 30px #0e0c16;
   }
   /* ._container_links a {
     margin-left: 5rem;
@@ -226,9 +235,11 @@
 
   ._active_hamburguer span:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
+    background-color: #2fe6af;
   }
 
   ._active_hamburguer span:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+    background-color: #2fe6af;
   }
 }

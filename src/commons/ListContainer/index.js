@@ -4,6 +4,7 @@ import ListItems from "../ListItems";
 import styles from "./ListContainer.module.css";
 import { useI18n } from "@hooks/useI18N";
 import { nameSections } from "@utils/nameSections";
+import stylees from "../../components/Experience/Experience.module.css";
 
 export default function ListContainer({ dataResponse }) {
   const { translate } = useI18n();
@@ -15,10 +16,14 @@ export default function ListContainer({ dataResponse }) {
 
   return (
     <div className={styles._container}>
-      <div className={styles._title}>
-        <h1>{translate(RENAME_SECTIONS)}</h1>
+      <div className={stylees._code_wrap}>
+        <div className={stylees._dot}>
+          <h1>{`<${translate(RENAME_SECTIONS)}/>`}</h1>
+        </div>
       </div>
-      <ListItems dataResponse={dataResponse} />
+      <div className={stylees._container}>
+        <ListItems dataResponse={dataResponse} />
+      </div>
       <div className={styles._button}>
         <ArrowAnimation route={() => router.push(`/${PATH_PUSH}`)} />
       </div>
