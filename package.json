@@ -19,7 +19,7 @@
     "@fontsource/fira-code": "^5.0.17",
     "atropos": "^2.0.2",
     "chroma-js": "^2.4.2",
-    "framer-motion": " 6.3.0",
+    "framer-motion": "11.2.9",
     "hono": "^4.0.10",
     "next": "15.0.0-canary.25",
     "react": "19.0.0-rc.0",
@@ -30,8 +30,7 @@
   },
   "devDependencies": {
     "@svgr/webpack": "6.2.1",
-    "@testing-library/jest-dom": "5.16.4",
-    "@testing-library/react": "13.2.0",
+    "@testing-library/jest-dom": "^6.1.4",
     "babel-jest": "28.1.0",
     "eslint": "7.32.0",
     "eslint-config-next": "^14.1.2",
@@ -39,7 +38,7 @@
     "eslint-plugin-prettier": "4.0.0",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
-    "prettier": "2.6.2",
+    "prettier": "2.8.8",
     "next": "15.0.0-canary.25",
     "standard": "^17.1.0",
     "wrangler": "^3.60.3"
