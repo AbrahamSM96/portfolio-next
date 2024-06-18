@@ -21,7 +21,7 @@
     "chroma-js": "^2.4.2",
     "framer-motion": " 6.3.0",
     "hono": "^4.0.10",
-    "next": "15.0.0-canary.25",
+    "next": "14.2.3",
     "react": "19.0.0-rc.0",
     "react-dom": "19.0.0-rc.0",
     "react-icons": "4.3.1",
