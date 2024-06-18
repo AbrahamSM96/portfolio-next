@@ -1,25 +1,21 @@
-// module.exports = {
-//   webpack(config) {
-//     config.module.rules.push({
-//       test: /\.svg$/,
-//       issuer: {
-//         test: /\.(js|ts)x?$/
-//       },
-//       use: ['@svgr/webpack']
-//     })
-
-//     return config
-//   }
-// }
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
   images: {
     minimumCacheTTL: 60,
-    domains: [
-      "i.imgur.com",
-      "res.cloudinary.com",
-      "firebasestorage.googleapis.com",
+    remotePatterns: [
+      {
+        hostname: "i.imgur.com",
+        protocol: "https",
+      },
+      {
+        hostname: "res.cloudinary.com",
+        protocol: "https",
+      },
+      {
+        hostname: "firebasestorage.googleapis.com",
+        protocol: "https",
+      },
     ],
   },
   i18n: {

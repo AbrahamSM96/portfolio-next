@@ -21,7 +21,7 @@
     "chroma-js": "^2.4.2",
     "framer-motion": " 6.3.0",
     "hono": "^4.0.10",
-    "next": "14.2.3",
+    "next": "15.0.0-canary.25",
     "react": "19.0.0-rc.0",
     "react-dom": "19.0.0-rc.0",
     "react-icons": "4.3.1",
@@ -41,7 +41,7 @@
     "jest-environment-jsdom": "28.1.0",
     "prettier": "2.6.2",
     "standard": "^17.1.0",
-    "wrangler": "^2.21.0"
+    "wrangler": "^3.60.3"
   },
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json"
