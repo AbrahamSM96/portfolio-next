@@ -15,6 +15,7 @@ const blackBox = {
     },
   },
 };
+
 const textContainer = {
   initial: {
     opacity: 1,
@@ -27,6 +28,7 @@ const textContainer = {
     },
   },
 };
+
 const text = {
   initial: {
     y: 40,
@@ -50,7 +52,9 @@ export default function InitialTransition() {
     }, 2500);
     return () => clearTimeout(mountArrow);
   }, []);
+
   const transitionZindex = zTransition ? 3 : 2;
+
   return (
     <>
       <div

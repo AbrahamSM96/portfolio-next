@@ -17,11 +17,7 @@ export default function Social({ socialData }) {
   return (
     <>
       <div className={styles._contact_title}>
-        <h1>
-          {"<"}
-          {translate("TITLE_CONTACT")}
-          {"/>"}
-        </h1>
+        <h1>{`<${translate("TITLE_CONTACT")}/>`}</h1>
       </div>
       <div className={styles._container}>
         <div className={styles._social}>

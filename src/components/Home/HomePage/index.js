@@ -1,12 +1,9 @@
-// import Image from "next/image";
-// import { useRouter } from "next/router";
-
 import { AnimatePresence } from "framer-motion";
 
 import { useI18n } from "@hooks/useI18N";
 
 import styles from "./Homepage.module.css";
-// import ArrowAnimation from "../../ArrowAnimation";
+
 import { colorsRandom } from "@utils/colors";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
@@ -72,8 +69,7 @@ export default function HomePage() {
   }, [API_LASTVISIT]);
 
   const TEXT_SHADOW = "#FFF 2px 1px 2px";
-  console.log(dataGet, "dataGet");
-  console.log(API_LASTVISIT, "API_LASTVISIT");
+
   return (
     <>
       <AnimatePresence>
@@ -149,20 +145,6 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* <figure className={styles._figure}>
-              <Image
-                src={img}
-                alt={title}
-                className={styles._img}
-                layout="responsive"
-                width={150}
-                height={150}
-              />
-            </figure>
-            <ArrowAnimation
-              style={{ zIndex: "2", marginRight: 0 }}
-              route={() => router.push("/skills")}
-            /> */}
             <small>
               <span id="last"></span>
               <span id="next"></span>
