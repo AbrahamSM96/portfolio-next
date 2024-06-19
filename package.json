@@ -25,7 +25,6 @@
     "react": "19.0.0-rc.0",
     "react-dom": "19.0.0-rc.0",
     "react-icons": "4.3.1",
-    "react-loading-skeleton": "3.1.0",
     "use-local-storage": "2.3.6"
   },
   "devDependencies": {
@@ -47,6 +46,6 @@
     "extends": "./node_modules/standard/eslintrc.json"
   },
   "engines": {
-    "node": ">=20.10.0"
+    "node": ">=18.0.0"
   }
 }
