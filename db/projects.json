@@ -5,7 +5,7 @@
       {
         "id": "1",
         "name": "MovieMon",
-        "img": "https://i.imgur.com/Tso1J5O.png",
+        "img": "/static/projects/moviemon.webp",
         "url": "https://movie-mon-frontend.now.sh/"
       },
       {

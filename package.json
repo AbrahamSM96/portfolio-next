@@ -10,13 +10,14 @@
     "lint": "next lint",
     "test": "jest",
     "test:cover": "jest --coverage",
-    "dev:api": "wrangler dev --local api/index.js",
-    "publish:api": "wrangler publish api/index.js"
+    "dev:api": "wrangler dev apiHono/index.js",
+    "publish:api": "wrangler publish apiHono/index.js"
   },
   "dependencies": {
     "@ctrl/tinycolor": "^4.1.0",
     "@deno/kv": "^0.8.1",
     "@fontsource/fira-code": "^5.0.18",
+    "@hono/node-server": "^1.11.4",
     "atropos": "^2.0.2",
     "chroma-js": "^2.4.2",
     "framer-motion": "11.2.11",

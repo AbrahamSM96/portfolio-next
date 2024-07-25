@@ -1,6 +1,7 @@
 name = "api-portfolio"
-main = "api/index.js"
+main = "apiHono/index.js"
 compatibility_date = "2023-01-30"
+workers_dev = true
 
 [site]
 bucket = "./assets"

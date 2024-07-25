@@ -5,6 +5,7 @@ import { memo } from "react";
 const Footer = dynamic(() => import("@components/Footer"));
 
 function About(props) {
+  console.log(JSON.stringify(props));
   return (
     <>
       <Experience {...props} />

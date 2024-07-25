@@ -1,13 +1,17 @@
 import { Hono } from "hono";
-import { serveStatic } from "hono/serve-static.module";
-import about from "../src/db/about.json";
-import contact from "../src/db/contact.json";
-import hero from "../src/db/hero.json";
-import projects from "../src/db/projects.json";
-import skills from "../src/db/skills.json";
-import social from "../src/db/social.json";
+import { serveStatic } from "hono/serve-static";
+import { cors } from "hono/cors";
+
+import about from "../db/about.json";
+import contact from "../db/contact.json";
+import hero from "../db/hero.json";
+import projects from "../db/projects.json";
+import skills from "../db/skills.json";
+import social from "../db/social.json";
 
 const app = new Hono();
+
+app.use(cors());
 
 app.get("/", (ctx) => {
   return ctx.json([
@@ -38,25 +42,27 @@ app.get("/", (ctx) => {
   ]);
 });
 
-app.get("/hero\\/?", (ctx) => {
+app.get("/hero", (ctx) => {
   return ctx.json(hero);
 });
-app.get("/skills\\/?", (ctx) => {
+app.get("/skills", (ctx) => {
   return ctx.json(skills);
 });
-app.get("/projects\\/?", (ctx) => {
+app.get("/projects", (ctx) => {
   return ctx.json(projects);
 });
-app.get("/about\\/?", (ctx) => {
+app.get("/about", (ctx) => {
   return ctx.json(about);
 });
-app.get("/contact\\/?", (ctx) => {
+app.get("/contact", (ctx) => {
   return ctx.json(contact);
 });
-app.get("/social\\/?", (ctx) => {
+app.get("/social", (ctx) => {
   return ctx.json(social);
 });
-app.get("/static/*", serveStatic({ root: "./" }));
+
+app.use("/static/*", serveStatic({ root: "./" }));
+// app.get("/", serveStatic({ path: "./static" }));
 
 app.notFound((ctx) => {
   const { pathname } = new URL(ctx.req.url);
