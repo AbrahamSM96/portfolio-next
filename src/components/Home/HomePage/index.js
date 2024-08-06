@@ -20,7 +20,7 @@ export default function HomePage() {
     process.env.NEXT_PUBLIC_API_LASTVISIT || "https://geolocation.microlink.io";
 
   const API_NEXT_VISIT =
-    process.env.NEXT_PUBLIC_API_NEXT_VISIT || process.env.API_NEXT_VISIT;
+    process.env.NEXT_PUBLIC_API_NEXT_VISIT || "https://www.abrahamsm.com";
 
   const listenSSE = (callback) => {
     const eventSource = new EventSource("/api/get/visit");
