@@ -5,7 +5,7 @@ const nextConfig = {
     minimumCacheTTL: 60,
     remotePatterns: [
       {
-        hostname: "i.imgur.com",
+        hostname: "raw.githubusercontent.com",
         protocol: "https",
       },
       {

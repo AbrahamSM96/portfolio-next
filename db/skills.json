@@ -5,67 +5,67 @@
       {
         "id": "1",
         "name": "HTML 5",
-        "img": "https://i.imgur.com/bhHa752.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/html5.webp"
       },
       {
         "id": "2",
         "name": "CSS 3",
-        "img": "https://i.imgur.com/46ysLUQ.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/css3.webp"
       },
       {
         "id": "3",
         "name": "JavaScript",
-        "img": "https://i.imgur.com/xRKdy9k.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/javascript.webp"
       },
       {
         "id": "4",
         "name": "React",
-        "img": "https://i.imgur.com/DyRWEob.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/react.webp"
       },
       {
         "id": "5",
         "name": "Next.js",
-        "img": "https://i.imgur.com/RyvWIzY.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/nextjs.webp"
       },
       {
         "id": "6",
         "name": "Git",
-        "img": "https://i.imgur.com/zRnSuqj.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/git.webp"
       },
       {
         "id": "7",
         "name": "Node.js",
-        "img": "https://i.imgur.com/C71wMMX.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/nodejs.webp"
       },
       {
         "id": "8",
         "name": "GraphQL",
-        "img": "https://i.imgur.com/p7LSpIj.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/graphql.webp"
       },
       {
         "id": "9",
         "name": "Mongo DB",
-        "img": "https://i.imgur.com/timopnw.png"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/mongodb.webp"
       },
       {
         "id": "10",
-        "name": "Styled Components",
-        "img": "https://i.imgur.com/nMhFWAk.png"
+        "name": "Tailwind CSS",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/tailwindcss.webp"
       },
       {
         "id": "11",
         "name": "Redux",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284411/portfolio-api/redux_lcxzpy.svg"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/redux.webp"
       },
       {
         "id": "12",
         "name": "PostgreSQL",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284414/portfolio-api/postgresql_qkcjoi.svg"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/postgresql.webp"
       },
       {
         "id": "13",
         "name": "Material UI",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284408/portfolio-api/material-ui_f5izw5.svg"
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/skills/materialui.webp"
       }
     ]
   }

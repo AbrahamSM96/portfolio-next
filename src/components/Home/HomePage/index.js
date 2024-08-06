@@ -1,74 +1,88 @@
+import { useContext, useEffect, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
-import { useI18n } from "@hooks/useI18N";
+import { PortfolioContext } from "@context/PortfolioContext";
+import { colorsRandom } from "@utils/colors";
 
+import LinkProjectsHome from "./LinkProjectsHome";
+import ContentHome from "./ContentHome";
+import LastVisitHome from "./LastVisitHome";
 import styles from "./Homepage.module.css";
 
-import { colorsRandom } from "@utils/colors";
-import { useEffect, useState } from "react";
-import { useContext } from "react";
-
-import { PortfolioContext } from "@context/PortfolioContext";
-import Link from "next/link";
-
-const EMOJISMEX = ["🇲🇽", "🌮", "🌯", "🫔"];
-
 export default function HomePage() {
-  const [timeEmoji, setTimeEmoji] = useState(0);
-  const [dataGet, setDataGet] = useState({});
-
   const { setPrimaryColor, primaryColor } = useContext(PortfolioContext);
-
-  const { translate } = useI18n();
+  const [events, setEvents] = useState([]);
+  const [dataCountry, setDataCountry] = useState();
 
   const colorRandom = colorsRandom();
 
-  const emojiChanges = EMOJISMEX[timeEmoji];
+  const API_LASTVISIT =
+    process.env.NEXT_PUBLIC_API_LASTVISIT || "https://geolocation.microlink.io";
 
-  const mouseEnter = () => {
-    setPrimaryColor(colorRandom.toString());
+  const API_NEXT_VISIT =
+    process.env.NEXT_PUBLIC_API_NEXT_VISIT || "http://localhost:3000";
+
+  const listenSSE = (callback) => {
+    const eventSource = new EventSource("/api/get/visit");
+    console.info("Listenting on SEE", eventSource);
+    eventSource.onmessage = (event) => {
+      const result = callback(event);
+      if (result?.cancel) {
+        console.info("Closing SSE");
+        eventSource.close();
+      }
+    };
+
+    return {
+      close: () => {
+        console.info("Closing SSE");
+        eventSource.close();
+      },
+    };
   };
 
-  const API_LASTVISIT = process.env.API_LASTVISIT ?? "http://localhost:3000";
-
   useEffect(() => {
-    setPrimaryColor(colorRandom.toString());
-  }, []);
+    setPrimaryColor(colorRandom);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setTimeEmoji((prev) => {
-        if (prev === EMOJISMEX.length - 1) {
-          return 0;
-        }
-        if (prev === 0) {
-          return prev + 1;
-        }
-        return prev + 1;
-      });
-    }, 5000);
-  }, [timeEmoji]);
-
-  useEffect(() => {
-    function fetchData() {
+    const fetchData = async () => {
       try {
-        const data = fetch(`${API_LASTVISIT}/api/post/visit`, {
-          method: "GET",
+        const geoResponse = await fetch(API_LASTVISIT);
+        const geoData = await geoResponse.json();
+
+        const {
+          city: { name: cityName },
+          country: { name: countryName, flag },
+        } = geoData ?? { city: { name: "" }, country: { name: "", flag: "" } };
+
+        // Realiza la segunda solicitud POST
+        await fetch(`${API_NEXT_VISIT}/api/post/visit`, {
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify({ city: cityName, country: countryName, flag }),
         });
-        const json = data.json();
-        const parsedData = JSON.parse(json.data);
-        setDataGet(parsedData);
-      } catch (error) {
-        console.log(error);
+      } catch (err) {
+        console.error(err);
       }
-    }
-    fetchData();
-  }, [API_LASTVISIT]);
+    };
 
-  const TEXT_SHADOW = "#FFF 2px 1px 2px";
+    fetchData();
+
+    let r = undefined;
+    r = listenSSE((event) => {
+      console.log(event.data);
+      const str = event.data;
+      if (str.startsWith("{") && str.endsWith("}")) {
+        const obj = JSON.parse(str);
+        setDataCountry(obj);
+        return { cancel: true };
+      } else {
+        setEvents((events) => [...events, event.data]);
+        return undefined;
+      }
+    });
+  }, []);
 
   return (
     <>
@@ -77,84 +91,18 @@ export default function HomePage() {
           className={styles._container}
           style={{ background: primaryColor }}
         >
-          <div
-            className={styles._content}
-            style={{ background: "rgb(24 24 27 / 1)" }}
-          >
-            <h1 className={styles._title} style={{ color: primaryColor }}>
-              {`Hi I'm Abraham 👋🏻`}
-            </h1>
-            <h2 className={styles._subtitle}>
-              <span style={{ color: "#006341", textShadow: TEXT_SHADOW }}>
-                Front{" "}
-              </span>
-              <span style={{ color: "#FFF", textShadow: TEXT_SHADOW }}>
-                End{" "}
-              </span>
-              <span style={{ color: "#C8102E", textShadow: TEXT_SHADOW }}>
-                Developer {emojiChanges}
-              </span>
-            </h2>
-            <p
-              className={styles._contentDescription}
-              style={{ color: primaryColor }}
-            >
-              {translate("DESCRIPTION")}
-            </p>
+          <div className={styles._content}>
+            <ContentHome primaryColor={primaryColor} />
 
             <div className={styles._content_grid}>
-              <Link
-                href="/about"
-                onMouseEnter={mouseEnter}
-                style={{
-                  "--hover-color": primaryColor,
-                  "--hover-opacity": 0.5,
-                }}
-              >
-                About me
-              </Link>
-              <Link
-                href="/experience"
-                onMouseEnter={mouseEnter}
-                style={{
-                  "--hover-color": primaryColor,
-                  "--hover-opacity": 0.5,
-                }}
-              >
-                Experience
-              </Link>
-              <Link
-                href="/skills"
-                onMouseEnter={mouseEnter}
-                style={{
-                  "--hover-color": primaryColor,
-                  "--hover-opacity": 0.5,
-                }}
-              >
-                Skills
-              </Link>
-              <Link
-                href="/projects"
-                onMouseEnter={mouseEnter}
-                style={{
-                  "--hover-color": primaryColor,
-                  "--hover-opacity": 0.5,
-                }}
-              >
-                Projects
-              </Link>
+              <LinkProjectsHome
+                primaryColor={primaryColor}
+                setPrimaryColor={setPrimaryColor}
+                colorsRandom={colorsRandom}
+              />
             </div>
-
-            <small>
-              <span id="last"></span>
-              <span id="next"></span>
-            </small>
           </div>
-          <div className={styles._lastvisit}>
-            <span>{dataGet.city}</span>
-            <span>{dataGet.country}</span>
-            <span>{dataGet.flag}</span>
-          </div>
+          <LastVisitHome dataCountry={dataCountry} />
         </article>
       </AnimatePresence>
     </>

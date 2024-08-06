@@ -41,7 +41,7 @@
   }
 
   ._listCard_skills {
-    object-fit: initial;
+    object-fit: scale-down;
   }
   
   ._listCard_title {
@@ -49,7 +49,7 @@
     margin: 1rem;
     text-align: center;
     /* color: var(--text-primary); */
-    color: #3b3553;
+    color: #F5ECFF;
   }
   
   ._next {

@@ -20,6 +20,7 @@
   left: 0;
   right: 0;
   bottom: 0;
+  background: rgba(24 24 27 / 1);
 }
 /* ._content:before, ._content:after {
   content: '';
@@ -179,7 +180,7 @@
   }
 
   ._title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   ._subtitle {

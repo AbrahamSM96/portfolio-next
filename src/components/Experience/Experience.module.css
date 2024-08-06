@@ -37,7 +37,7 @@
 
 ._lineCode::before {
   content: attr(data-line-nr);
-  color: #3b3553;
+  color: #3B3553;
   position: absolute;
   left: -40px;
 }
@@ -63,7 +63,7 @@
 }
 
 ._dot {
-  color: #3b3553;
+  color: #F5ECFF;
 }
 
 @media (width <= 768px) {

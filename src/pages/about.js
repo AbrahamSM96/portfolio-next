@@ -1,11 +1,10 @@
-import Experience from "@components/Experience";
 import dynamic from "next/dynamic";
 import { memo } from "react";
 
 const Footer = dynamic(() => import("@components/Footer"));
+const Experience = dynamic(() => import("@components/Experience"));
 
 function About(props) {
-  console.log(JSON.stringify(props));
   return (
     <>
       <Experience {...props} />

@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
 
-export function useFetchAPI() {
+export function useFetchAPI(api) {
   const [data, setData] = useState({});
-  const [load, setLoad] = useState(true);
+  const [load, setLoad] = useState(false);
   const [error, setError] = useState(null);
-  const API = `https://quiet-mountain-18164.herokuapp.com/api/data`;
 
   const fetchAPI = async () => {
     setError(null);
     setLoad(true);
     try {
-      const response = await fetch(API);
-      const datas = await response.json();
+      const response = await fetch(api);
+      const datajson = await response.json();
       setLoad(false);
-      setData(datas);
+      setData(datajson);
       setError(null);
     } catch (error) {
       setLoad(false);
@@ -24,5 +23,6 @@ export function useFetchAPI() {
   useEffect(() => {
     fetchAPI();
   }, []);
+
   return { data, load, error, setLoad };
 }

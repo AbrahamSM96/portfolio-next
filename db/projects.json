@@ -5,43 +5,43 @@
       {
         "id": "1",
         "name": "MovieMon",
-        "img": "/static/projects/moviemon.webp",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/moviemon.webp",
         "url": "https://movie-mon-frontend.now.sh/"
       },
       {
         "id": "2",
         "name": "Petgram",
-        "img": "https://i.imgur.com/AI9cZ5f.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/petgram.webp",
         "url": "https://petgram-abrahamserrano96.vercel.app/"
       },
       {
         "id": "3",
         "name": "Portfolio",
-        "img": "https://i.imgur.com/txHf1kj.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/portfolio.webp",
         "url": "https://abrahamsm96.github.io/portfolio_abraham/"
       },
       {
         "id": "4",
         "name": "Psicoterapeuta",
-        "img": "https://i.imgur.com/a86z8hj.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/psicoterapeuta.webp",
         "url": "https://psicoterapeutamagdalenamontiel.com/"
       },
       {
         "id": "5",
         "name": "Fizz Buzz",
-        "img": "https://i.imgur.com/ritBtJn.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/fizzbuzz.webp",
         "url": "https://abrahamsm96.github.io/fizz-buzz/"
       },
       {
         "id": "6",
         "name": "Rick and Morty",
-        "img": "https://i.imgur.com/baML0da.jpg",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/rickandmorty.webp",
         "url": "https://abrahamsm96.github.io/RickAndMorty-React/#/"
       },
       {
         "id": "7",
         "name": "Portfolio NextJS",
-        "img": "https://i.imgur.com/EFq2a6O.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/portfolionext.webp",
         "url": "https://portfolio-next-gilt.vercel.app/"
       },
       {
@@ -53,37 +53,37 @@
       {
         "id": "9",
         "name": "Artist Searcher",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284400/portfolio-api/artist_hjoomk.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/spotifysearcher.webp",
         "url": "https://62e81ce614f9dc000815eef2--kaleidoscopic-torrone-dd97ea.netlify.app/"
       },
       {
         "id": "10",
         "name": "Configurador Hyundai 2020-2022",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284406/portfolio-api/configurador-hyundai-1_ckivui.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/hconfigurador2021.webp",
         "url": "https://hmm-byo-stage.hyundaimotormex-leads.com/"
       },
       {
         "id": "11",
         "name": "Configurador Hyundai 2022",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284230/portfolio-api/configurador-hyundai-2_igbhfy.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/hconfigurador2022.webp",
         "url": "https://hmm-byo2-stage.hyundaimotormex-leads.com/"
       },
       {
         "id": "12",
         "name": "Pokémon searcher",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284306/portfolio-api/pokemon-searcher_p6s6sq.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/pokemonsearcher.webp",
         "url": "https://abrahamsm96.github.io/pokemon-search-background/"
       },
       {
         "id": "13",
         "name": "Devtter Twitter Clone",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284310/portfolio-api/devtter_kbfrkc.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/devtter.webp",
         "url": "https://devtter-abrahamserrano96.vercel.app/"
       },
       {
         "id": "14",
         "name": "Giffy searcher gifs",
-        "img": "https://res.cloudinary.com/dchfrwaei/image/upload/v1666284394/portfolio-api/giffy_fmrmnq.png",
+        "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/projects/giffy.webp",
         "url": "https://giffy-phi.vercel.app/"
       }
     ]

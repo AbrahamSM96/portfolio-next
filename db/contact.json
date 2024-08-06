@@ -2,6 +2,6 @@
   {
     "title": "Contacto",
     "email": "AbrahamSerrano96@hotmail.com",
-    "img": "/assets/static/abraham_contact.webp"
+    "img": "https://raw.githubusercontent.com/AbrahamSM96/portfolio-next/main/public/static/contact/abraham_contact.webp"
   }
 ]

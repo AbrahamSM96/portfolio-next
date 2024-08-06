@@ -1,5 +1,5 @@
 import { useLocaleTranslate } from "@hooks/useLocaleTranslate";
-import { useFetchAPI } from "@hooks/useFetchAPI";
+// import { useFetchAPI } from "@hooks/useFetchAPI";
 
 import { PortfolioContext } from "./PortfolioContext";
 import { useDarkTheme } from "@hooks/useDarkTheme";
@@ -10,13 +10,13 @@ export default function PortfolioProvider({ children }) {
 
   const [primaryColor, setPrimaryColor] = useState("#ffff");
 
-  const { data, load, error } = useFetchAPI();
+  // const { data, load, error } = useFetchAPI();
   const { switchTheme, theme } = useDarkTheme();
 
   let sharedState = {
-    data,
-    load,
-    error,
+    // data,
+    // load,
+    // error,
     translate,
     switchTheme,
     theme,

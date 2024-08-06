@@ -1,6 +1,7 @@
 import { memo } from "react";
+import dynamic from "next/dynamic";
 
-import ExperienceComponent from "@components/Experience";
+const ExperienceComponent = dynamic(() => import("@components/Experience"));
 
 function Experience(props) {
   return <ExperienceComponent {...props} />;
