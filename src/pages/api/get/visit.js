@@ -1,13 +1,15 @@
 export const runtime = "edge";
 
+const API_NEXT_VISIT =
+  process.env.NEXT_PUBLIC_API_NEXT_VISIT || process.env.API_NEXT_VISIT;
+
 export default async function GET() {
   let responseStream = new TransformStream();
   const writer = responseStream.writable.getWriter();
   const encoder = new TextEncoder();
-
   try {
     const fetchDataJson = await fetch(
-      "http://localhost:3000/db/visitdata.json"
+      `${API_NEXT_VISIT}/db/visitdata.json`
     ).then((res) => res.json());
     const lastArr =
       fetchDataJson.length >= 1 && fetchDataJson[fetchDataJson?.length - 1];
