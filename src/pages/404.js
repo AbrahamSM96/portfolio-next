@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 function Error({ statusCode }) {
   return (
     <div
@@ -17,10 +19,11 @@ function Error({ statusCode }) {
           : "An error occurred on client"}
       </h1>
 
-      <img
+      <Image
         src="https://midu.dev/images/this-is-fine-404.gif"
         alt="Not found gif"
         style={{ width: "600px", height: "500px" }}
+        fill
       />
     </div>
   );

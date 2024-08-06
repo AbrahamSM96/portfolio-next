@@ -1,10 +1,9 @@
 export const runtime = "edge";
 
-export default async function GET(req, res) {
+export default async function GET() {
   let responseStream = new TransformStream();
   const writer = responseStream.writable.getWriter();
   const encoder = new TextEncoder();
-  let closed = false;
 
   try {
     const fetchDataJson = await fetch(
@@ -20,7 +19,6 @@ export default async function GET(req, res) {
   } finally {
     // Cierra el escritor y libera recursos
     writer.close();
-    closed = true;
   }
 
   // Retorna la respuesta conectada al stream readable

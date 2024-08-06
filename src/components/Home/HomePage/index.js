@@ -11,7 +11,7 @@ import styles from "./Homepage.module.css";
 
 export default function HomePage() {
   const { setPrimaryColor, primaryColor } = useContext(PortfolioContext);
-  const [events, setEvents] = useState([]);
+  const [, setEvents] = useState([]);
   const [dataCountry, setDataCountry] = useState();
 
   const colorRandom = colorsRandom();
@@ -69,8 +69,7 @@ export default function HomePage() {
 
     fetchData();
 
-    let r = undefined;
-    r = listenSSE((event) => {
+    listenSSE((event) => {
       console.log(event.data);
       const str = event.data;
       if (str.startsWith("{") && str.endsWith("}")) {
